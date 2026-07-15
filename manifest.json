@@ -1,0 +1,6 @@
+{
+  "name":"Kisan Calculator",
+  "short_name":"KisanCalc",
+  "start_url":"./",
+  "display":"standalone"
+}

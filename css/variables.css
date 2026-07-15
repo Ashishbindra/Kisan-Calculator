@@ -1,0 +1,96 @@
+/* =====================================
+   Kisan Calculator Design System
+===================================== */
+
+:root{
+
+    /* ========= Colors ========= */
+
+    --primary:#2E7D32;
+    --primary-light:#4CAF50;
+    --primary-dark:#1B5E20;
+
+    --secondary:#81C784;
+
+    --success:#28a745;
+    --warning:#ffc107;
+    --danger:#dc3545;
+    --info:#17a2b8;
+
+    --white:#ffffff;
+    --black:#222222;
+
+    --bg:#F4F8F1;
+    --card:#ffffff;
+
+    --text:#222222;
+    --text-light:#666666;
+
+    --border:#e5e7eb;
+
+    /* ========= Radius ========= */
+
+    --radius-xs:6px;
+    --radius-sm:10px;
+    --radius-md:16px;
+    --radius-lg:22px;
+    --radius-xl:30px;
+
+    /* ========= Shadow ========= */
+
+    --shadow-sm:0 2px 8px rgba(0,0,0,.08);
+
+    --shadow-md:0 8px 20px rgba(0,0,0,.10);
+
+    --shadow-lg:0 15px 35px rgba(0,0,0,.15);
+
+    /* ========= Font ========= */
+
+    --font-family:'Poppins',sans-serif;
+
+    --font-xs:12px;
+    --font-sm:14px;
+    --font-md:16px;
+    --font-lg:20px;
+    --font-xl:28px;
+    --font-xxl:36px;
+
+    /* ========= Spacing ========= */
+
+    --space-xs:6px;
+    --space-sm:10px;
+    --space-md:18px;
+    --space-lg:28px;
+    --space-xl:40px;
+
+    /* ========= Transition ========= */
+
+    --transition:.3s ease;
+
+}
+
+
+
+/* =====================================
+   Dark Theme
+===================================== */
+
+body.dark{
+
+    --bg:#111827;
+
+    --card:#1f2937;
+
+    --text:#ffffff;
+
+    --text-light:#cbd5e1;
+
+    --border:#374151;
+
+    --shadow-sm:0 2px 8px rgba(0,0,0,.4);
+
+    --shadow-md:0 10px 25px rgba(0,0,0,.45);
+
+    --shadow-lg:0 20px 45px rgba(0,0,0,.5);
+
+}

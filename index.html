@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kisan Calculator</title>
+
+    <meta name="theme-color" content="#2E7D32">
+
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- ==========================
+            Header
+    =========================== -->
+
+        <header class="header">
+
+            <div class="logo">
+
+                🌾
+
+            </div>
+
+            <div>
+
+                <h1>Kisan Calculator</h1>
+
+                <p>Smart Farming Tools</p>
+
+            </div>
+
+        </header>
+
+        <!-- ==========================
+            Main
+    =========================== -->
+
+        <main>
+
+            <!-- ================= HOME ================= -->
+
+            <section id="homePage" class="page active-page">
+
+                <div class="hero">
+
+                    <h2>
+                        किसान के लिए स्मार्ट कैलकुलेटर
+                    </h2>
+
+                    <p>
+
+                        खेती से जुड़े सभी जरूरी कैलकुलेटर
+                        एक ही ऐप में।
+
+                    </p>
+
+                </div>
+
+                <div class="tool-grid">
+
+                    <div class="tool-card open-area">
+
+                        <i class="fa-solid fa-ruler-combined"></i>
+
+                        <h4>Area Calculator</h4>
+
+                        <p>
+
+                            खेत का क्षेत्रफल निकालें
+
+                        </p>
+
+                    </div>
+
+                    <div class="tool-card disabled">
+
+                        <i class="fa-solid fa-seedling"></i>
+
+                        <h4>Seed Calculator</h4>
+
+                        <span>Coming Soon</span>
+
+                    </div>
+
+                    <div class="tool-card disabled">
+
+                        <i class="fa-solid fa-droplet"></i>
+
+                        <h4>Irrigation</h4>
+
+                        <span>Coming Soon</span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= AREA ================= -->
+
+            <section id="areaPage" class="page">
+
+                <div class="page-header">
+
+                    <h2>🌾 Area Calculator</h2>
+
+                    <p>
+                        खेत का क्षेत्रफल निकालें
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <div class="form-group">
+
+                        <label class="label">
+
+                            खेत का नाम
+
+                        </label>
+
+                        <input type="text" class="input" id="fieldName" placeholder="जैसे - पश्चिम वाला खेत">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label class="label">
+
+                            खेत का आकार
+
+                        </label>
+
+                        <select id="fieldShape">
+
+                            <option value="rectangle">
+                                आयत (Rectangle)
+                            </option>
+
+                            <option value="square">
+                                वर्ग (Square)
+                            </option>
+
+                            <option disabled>
+                                त्रिकोण (Coming Soon)
+                            </option>
+
+                            <option disabled>
+                                गोल (Coming Soon)
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="form-group">
+
+                            <label class="label">
+
+                                लंबाई
+
+                            </label>
+
+                            <input type="number" class="input" id="length" placeholder="0">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label class="label">
+
+                                चौड़ाई
+
+                            </label>
+
+                            <input type="number" class="input" id="width" placeholder="0">
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-group">
+
+                            <label>राज्य</label>
+
+                            <select id="state">
+
+                                <option value="up">उत्तर प्रदेश</option>
+                                <option value="bihar">बिहार</option>
+                                <option value="rajasthan">राजस्थान</option>
+                                <option value="mp">मध्य प्रदेश</option>
+                                <option value="haryana">हरियाणा</option>
+                                <option value="punjab">पंजाब</option>
+                                <option value="maharashtra">महाराष्ट्र</option>
+                                <option value="gujarat">गुजरात</option>
+
+                            </select>
+
+                        </div>
+                        <label class="label">
+
+                            माप की इकाई
+
+                        </label>
+
+                        <select id="unit">
+
+                            <option value="feet">
+
+                                Feet
+
+                            </option>
+
+                            <option value="meter">
+
+                                Meter
+
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <button id="calculateBtn" class="btn">
+
+                        Calculate Area
+
+                    </button>
+
+                </div>
+
+
+
+                <div class="card result-card" id="resultCard">
+
+                    <h3>
+
+                        Result
+
+                    </h3>
+
+                    <div class="result-item">
+
+                        <span>
+
+                            Square Feet
+
+                        </span>
+
+                        <strong id="sqFeet">
+
+                            -
+
+                        </strong>
+
+                    </div>
+
+                    <div class="result-item">
+
+                        <span>
+
+                            Square Meter
+
+                        </span>
+
+                        <strong id="sqMeter">
+
+                            -
+
+                        </strong>
+
+                    </div>
+
+                    <div class="result-item">
+
+                        <span>
+
+                            Acre
+
+                        </span>
+
+                        <strong id="acre">
+
+                            -
+
+                        </strong>
+
+                    </div>
+
+                    <div class="result-item">
+
+                        <span>
+
+                            Hectare
+
+                        </span>
+
+                        <strong id="hectare">
+
+                            -
+
+                        </strong>
+
+                    </div>
+
+                    <div class="result-item">
+
+                        <span>
+
+                            Bigha
+
+                        </span>
+
+                        <strong id="bigha">
+
+                            -
+
+                        </strong>
+
+                    </div>
+
+                    <button class="btn" id="saveRecord">
+
+                        Save Record
+
+                    </button>
+
+                </div>
+
+            </section>
+
+            <!-- ================= RECORD ================= -->
+
+            <section id="recordPage" class="page">
+
+                <div class="page-header">
+
+                    <h2>📂 Saved Records</h2>
+
+                    <p>आपके सेव किए गए खेत</p>
+
+                </div>
+
+                <div id="recordsContainer">
+
+                    <p style="text-align:center;color:#777">
+
+                        अभी कोई रिकॉर्ड सेव नहीं है।
+
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- ================= SETTINGS ================= -->
+
+            <section id="settingPage" class="page">
+
+                <h2>
+
+                    Settings
+
+                </h2>
+
+            </section>
+
+        </main>
+
+
+
+        <!-- ==========================
+        Bottom Navigation
+    =========================== -->
+
+        <nav class="bottom-nav">
+
+            <button class="nav-btn active" data-page="homePage">
+
+                <i class="fa-solid fa-house"></i>
+
+                <span>Home</span>
+
+            </button>
+
+            <button class="nav-btn" data-page="areaPage">
+
+                <i class="fa-solid fa-ruler-combined"></i>
+
+                <span>Area</span>
+
+            </button>
+
+            <button class="nav-btn" data-page="recordPage">
+
+                <i class="fa-solid fa-folder"></i>
+
+                <span>Records</span>
+
+            </button>
+
+            <button class="nav-btn" data-page="settingPage">
+
+                <i class="fa-solid fa-gear"></i>
+
+                <span>Settings</span>
+
+            </button>
+
+        </nav>
+
+    </div>
+
+    <script src="js/storage.js"></script>
+    <script src="js/calculator.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

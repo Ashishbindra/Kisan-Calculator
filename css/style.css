@@ -1,0 +1,676 @@
+/* ===========================
+   RESET
+=========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f4f8f1;
+    color: #222;
+}
+
+/* ===========================
+   APP
+=========================== */
+
+.app {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+
+header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #2E7D32;
+    color: #fff;
+    padding: 18px 20px;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .15);
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #fff;
+    color: #2E7D32;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+}
+
+header h1 {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+header p {
+    opacity: .9;
+    font-size: 14px;
+}
+
+/* ===========================
+   HERO
+=========================== */
+
+.hero {
+    margin-top: 25px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+}
+
+.hero h2 {
+    color: #2E7D32;
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.hero p {
+    color: #666;
+    line-height: 1.7;
+}
+
+/* ===========================
+   TOOLS
+=========================== */
+
+.tools {
+    margin-top: 35px;
+}
+
+.tools h3 {
+    margin-bottom: 20px;
+    color: #2E7D32;
+}
+
+/* ===========================
+   GRID
+=========================== */
+
+.tool-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.tool-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .08);
+    transition: .3s;
+    cursor: pointer;
+}
+
+.tool-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 35px rgba(0, 0, 0, .15);
+}
+
+.tool-card i {
+    font-size: 45px;
+    color: #2E7D32;
+    margin-bottom: 15px;
+}
+
+.tool-card h4 {
+    margin-bottom: 10px;
+}
+
+.tool-card p {
+    color: #666;
+    font-size: 14px;
+}
+
+.tool-card span {
+    display: inline-block;
+    margin-top: 12px;
+    background: #FFF3CD;
+    color: #856404;
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-size: 13px;
+}
+
+/* Active Card */
+
+.active {
+    border: 2px solid #2E7D32;
+}
+
+/* Disabled */
+
+.disabled {
+    opacity: .75;
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+
+footer {
+    margin-top: 50px;
+    text-align: center;
+    color: #666;
+    padding: 20px;
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #2E7D32;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 22px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: #256b2a;
+}
+
+body {
+    font-family: var(--font-family);
+    background: var(--bg);
+    color: var(--text);
+}
+
+.tool-card {
+    background: var(--card);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+}
+
+.tool-card:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+header {
+    background: var(--primary);
+}
+
+.page {
+
+    display: none;
+
+    animation: fade .35s;
+
+    padding-bottom: 90px;
+
+}
+
+.active-page {
+
+    display: block;
+
+}
+
+.bottom-nav {
+
+    position: fixed;
+
+    left: 0;
+
+    bottom: 0;
+
+    width: 100%;
+
+    height: 70px;
+
+    background: white;
+
+    display: flex;
+
+    justify-content: space-around;
+
+    align-items: center;
+
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, .08);
+
+    z-index: 999;
+
+}
+
+.nav-btn {
+
+    border: none;
+
+    background: none;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    cursor: pointer;
+
+    color: #666;
+
+    font-size: 14px;
+
+}
+
+.nav-btn i {
+
+    font-size: 22px;
+
+    margin-bottom: 5px;
+
+}
+
+.nav-btn.active {
+
+    color: #2E7D32;
+
+    font-weight: 600;
+
+}
+
+@keyframes fade {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(15px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+.page-header {
+
+    margin-bottom: 20px;
+
+}
+
+.card {
+
+    background: #fff;
+
+    padding: 20px;
+
+    border-radius: 18px;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+
+    margin-bottom: 20px;
+
+}
+
+.form-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    margin-bottom: 18px;
+
+}
+
+.form-group label {
+
+    margin-bottom: 8px;
+
+    font-weight: 600;
+
+}
+
+.form-group input,
+.form-group select {
+
+    height: 50px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 12px;
+
+    padding: 0 15px;
+
+    outline: none;
+
+    font-size: 16px;
+
+}
+
+.form-group input:focus,
+.form-group select:focus {
+
+    border-color: #2E7D32;
+
+}
+
+.row {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+
+}
+
+.result-card {
+
+    display: none;
+
+}
+
+.result-item {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid #eee;
+
+}
+
+.result-item strong {
+
+    color: #2E7D32;
+
+}
+
+.record-card {
+
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 16px;
+
+    margin-bottom: 20px;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+
+}
+
+.record-card h3 {
+
+    color: #2E7D32;
+
+    margin-bottom: 10px;
+
+}
+
+.delete-btn {
+
+    background: #dc3545;
+
+}
+
+.delete-btn:hover {
+
+    background: #b52a37;
+
+}
+
+/* ===========================
+   Page Title
+=========================== */
+
+.page-title {
+
+    font-size: 28px;
+
+    font-weight: 700;
+
+    color: var(--primary);
+
+    margin-bottom: 6px;
+
+}
+
+.page-subtitle {
+
+    color: var(--text-light);
+
+    margin-bottom: 25px;
+
+}
+
+
+/* ===========================
+   Card
+=========================== */
+
+.card {
+
+    background: var(--card);
+
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-md);
+
+    padding: 20px;
+
+    margin-bottom: 20px;
+
+}
+
+
+/* ===========================
+   Input
+=========================== */
+
+.input {
+
+    width: 100%;
+
+    height: 50px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    padding: 0 15px;
+
+    font-size: 16px;
+
+    outline: none;
+
+    transition: .3s;
+
+}
+
+.input:focus {
+
+    border-color: var(--primary);
+
+}
+
+
+/* ===========================
+   Label
+=========================== */
+
+.label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-weight: 600;
+
+}
+
+
+/* ===========================
+   Section
+=========================== */
+
+.section {
+
+    margin-bottom: 20px;
+
+}
+
+.error{
+
+    color:#dc3545;
+
+    font-size:14px;
+
+    margin-top:5px;
+
+}
+
+.input-error{
+
+    border:2px solid #dc3545 !important;
+
+}
+
+.input-success{
+
+    border:2px solid #28a745 !important;
+
+}
+
+/* ===========================
+   Record Card
+=========================== */
+
+.record-card{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    margin-bottom:20px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.record-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:15px;
+
+    flex-wrap:wrap;
+
+}
+
+.record-header h3{
+
+    color:#2E7D32;
+
+}
+
+.record-date{
+
+    font-size:13px;
+
+    color:#777;
+
+}
+
+.record-body p{
+
+    margin:8px 0;
+
+    color:#444;
+
+}
+
+.record-footer{
+
+    margin-top:15px;
+
+    display:flex;
+
+    justify-content:flex-end;
+
+}
+
+.empty-record{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:40px 20px;
+
+    text-align:center;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.empty-record h3{
+
+    color:#2E7D32;
+
+    margin-bottom:10px;
+
+}
+
+.edit-btn{
+
+    background:#ffc107;
+
+    color:black;
+
+    margin-right:10px;
+
+}
+
+.edit-btn:hover{
+
+    background:#e0a800;
+
+}

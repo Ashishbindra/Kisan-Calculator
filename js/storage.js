@@ -59,28 +59,15 @@ function getLastArea() {
     return JSON.parse(localStorage.getItem("lastArea"));
 
 }
-
-const FARM_KEY = "kisan_farms";
-
 function getFarms() {
 
-    return JSON.parse(
-
-        localStorage.getItem(FARM_KEY)
-
-    ) || [];
+    return JSON.parse(localStorage.getItem("kisan_farms")) || [];
 
 }
 
 function saveFarms(farms) {
 
-    localStorage.setItem(
-
-        FARM_KEY,
-
-        JSON.stringify(farms)
-
-    );
+    localStorage.setItem("kisan_farms", JSON.stringify(farms));
 
 }
 
@@ -93,5 +80,60 @@ function addFarm(farm) {
     farms.unshift(farm);
 
     saveFarms(farms);
+
+}
+
+function deleteFarm(id) {
+
+    const farms = getFarms().filter(farm => farm.id !== id);
+
+    saveFarms(farms);
+
+}
+
+const CURRENT_FARM_KEY = "current_farm";
+
+function setCurrentFarm(farm){
+
+    localStorage.setItem(
+        CURRENT_FARM_KEY,
+        JSON.stringify(farm)
+    );
+
+}
+
+function getCurrentFarm(){
+
+    return JSON.parse(
+        localStorage.getItem(CURRENT_FARM_KEY)
+    );
+
+}
+
+const PLAN_KEY = "kisan_crop_plans";
+
+function getPlans() {
+
+    return JSON.parse(localStorage.getItem(PLAN_KEY)) || [];
+
+}
+
+function savePlans(plans) {
+
+    localStorage.setItem(PLAN_KEY, JSON.stringify(plans));
+
+}
+
+function addPlan(plan) {
+
+    const plans = getPlans();
+
+    plan.id = Date.now();
+
+    plan.createdAt = new Date().toLocaleString();
+
+    plans.unshift(plan);
+
+    savePlans(plans);
 
 }

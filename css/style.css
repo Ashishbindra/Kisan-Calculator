@@ -1220,3 +1220,23 @@ body{
     transform:scale(.9);
 
 }
+
+.result-actions{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.result-card p{
+    padding: 14px 0;
+    margin: 0;
+}
+
+.card{
+    padding: 24px;
+}
+
+button{
+    display:block;
+}

@@ -215,3 +215,22 @@ function clearValidation() {
     });
 
 }
+
+const saveFarmBtn = document.getElementById("saveToFarm");
+
+if(saveFarmBtn){
+
+    saveFarmBtn.onclick = () => {
+
+        document.getElementById("farmArea").value =
+            currentResult.acre.toFixed(2);
+
+        document.getElementById("farmAreaUnit").value =
+            "acre";
+
+        document.getElementById("farmDialog")
+            .classList.add("active");
+
+    }
+
+}

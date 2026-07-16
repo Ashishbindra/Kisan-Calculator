@@ -208,6 +208,15 @@
 
                     </div>
 
+                    <div class="tool-card open-history">
+
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+
+                        <h4>Plan History</h4>
+
+                        <p>पुराने Crop Plans</p>
+
+                    </div>
                 </div>
 
             </section>
@@ -454,11 +463,13 @@
 
                     </div>
 
-                    <button id="saveRecord" class="btn">
+                    <div class="result-actions">
 
-                        Save Record
-
-                    </button>
+                        <button id="saveRecord" class="btn">
+                            Save Record
+                        </button>
+                    
+                    </div>
 
                 </div>
 
@@ -708,7 +719,21 @@
 
             </section>
 
+            <section id="planHistoryPage" class="page">
 
+                <div class="page-header">
+
+                    <h2>🌾 Crop Plan History</h2>
+
+                    <p>सभी Saved Crop Plans</p>
+
+                </div>
+
+                <div id="planHistory">
+
+                </div>
+
+            </section>
 
             <!-- ================= SETTINGS ================= -->
 
@@ -739,37 +764,17 @@
 
                 <div class="page-header">
 
-                    <h2>
+                    <h2>🌾 Crop Planner</h2>
 
-                        🌾 Crop Planner
-
-                    </h2>
-
-                    <p>
-
-                        एक जगह पूरी जानकारी
-
-                    </p>
+                    <p>पूरी खेती की योजना</p>
 
                 </div>
-
 
                 <div class="card">
 
-                    <h3>
-
-                        Current Area
-
-                    </h3>
-
-                    <p id="plannerArea">
-
-                        Area Calculator से Area चुनें
-
-                    </p>
+                    <div id="plannerArea"></div>
 
                 </div>
-
 
                 <div class="card">
 
@@ -783,47 +788,23 @@
 
                         <select id="plannerCrop" class="input">
 
-                            <option value="">
+                            <option value="">Select Crop</option>
 
-                                Select Crop
+                            <option value="wheat">🌾 Wheat</option>
 
-                            </option>
+                            <option value="paddy">🌾 Paddy</option>
 
-                            <option value="wheat">
+                            <option value="maize">🌽 Maize</option>
 
-                                🌾 गेहूं
+                            <option value="mustard">🌼 Mustard</option>
 
-                            </option>
-
-                            <option value="paddy">
-
-                                🌾 धान
-
-                            </option>
-
-                            <option value="maize">
-
-                                🌽 मक्का
-
-                            </option>
-
-                            <option value="mustard">
-
-                                🌼 सरसों
-
-                            </option>
-
-                            <option value="gram">
-
-                                🟤 चना
-
-                            </option>
+                            <option value="gram">🟤 Gram</option>
 
                         </select>
 
                     </div>
 
-                    <button class="btn" id="generatePlan">
+                    <button id="generatePlan" class="btn">
 
                         Generate Plan
 
@@ -831,13 +812,14 @@
 
                 </div>
 
+                <div id="plannerResult" class="card result-card">
 
-                <div class="card result-card" id="plannerResult">
+                    <div id="plannerOutput"></div>
+                    <button id="savePlan" class="btn" style="margin-top:20px;display:none;">
 
-                    <div id="plannerOutput">
+                        💾 Save Crop Plan
 
-                    </div>
-
+                    </button>
                 </div>
 
             </section>
@@ -912,7 +894,37 @@
                     </option>
 
                 </select>
+                <div class="form-group">
 
+                    <label class="label">
+
+                        Area
+
+                    </label>
+
+                    <input id="farmArea" class="input" type="number" step="0.01" placeholder="2.50">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label class="label">
+
+                        Area Unit
+
+                    </label>
+
+                    <select id="farmAreaUnit" class="input">
+
+                        <option value="acre">Acre</option>
+
+                        <option value="bigha">Bigha</option>
+
+                        <option value="hectare">Hectare</option>
+
+                    </select>
+
+                </div>
                 <button class="btn" id="saveFarm">
 
                     Save Farm

@@ -87,6 +87,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const plannerCard = document.querySelector(".open-planner");
 
+    const historyCard = document.querySelector(".open-history");
+
+    if (historyCard) {
+
+        historyCard.onclick = () => {
+
+            showPage("planHistoryPage");
+
+            renderPlanHistory();
+
+        }
+
+    }
 
     if (areaCard) {
 

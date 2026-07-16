@@ -1011,28 +1011,99 @@ document.getElementById("downloadPdf").onclick = downloadCropPDF;
 async function downloadCropPDF() {
 
     const report = document.getElementById("pdfReport");
+    const farmer = getFarmerProfile();
+    const crop = CROP_DATABASE[
+        Object.keys(CROP_DATABASE).find(
+            key => CROP_DATABASE[key].name === currentPlan.crop
+        )
+    ];
 
     document.getElementById("pdfContent").innerHTML = `
 
-        <div style="font-family:Arial;padding:20px;">
+        <div style="font-family:Arial,sans-serif;padding:30px;background:#ffffff;color:#333;">
 
-            <h1 style="color:#2e7d32;">
-                🌾 Kisan Calculator
-            </h1>
+            <div style="text-align:center;border-bottom:3px solid #2e7d32;padding-bottom:15px;">
 
-            <h2>
-                Crop Planning Report
+                <h1 style="margin:0;color:#2e7d32;">
+                    🌾 Kisan Calculator
+                </h1>
+
+                <p style="margin:5px 0;font-size:18px;color:#666;">
+                    Smart Farming Toolkit
+                </p>
+
+                <h2 style="margin-top:15px;">
+                    Crop Planning Report
+                </h2>
+
+                <p>
+                    Generated :
+                    ${new Date().toLocaleString("en-IN")}
+                </p>
+
+            </div>
+
+            <br>
+
+            <h2 style="color:#2e7d32;">
+                👨‍🌾 Farmer Information
             </h2>
 
-            <hr>
-
-            <h3>👤 Farm Information</h3>
-
-            <table style="width:100%;border-collapse:collapse;">
+            <table style="width:100%;border-collapse:collapse;" border="1">
 
                 <tr>
 
-                    <td><b>Farm</b></td>
+                    <td><b>Name</b></td>
+
+                    <td>${farmer.name || "-"}</td>
+
+                </tr>
+
+                <tr>
+
+                    <td><b>Mobile</b></td>
+
+                    <td>${farmer.mobile || "-"}</td>
+
+                </tr>
+
+                <tr>
+
+                    <td><b>Village</b></td>
+
+                    <td>${farmer.village || "-"}</td>
+
+                </tr>
+
+                <tr>
+
+                    <td><b>District</b></td>
+
+                    <td>${farmer.district || "-"}</td>
+
+                </tr>
+
+                <tr>
+
+                    <td><b>State</b></td>
+
+                    <td>${farmer.state || "-"}</td>
+
+                </tr>
+
+            </table>
+
+            <br>
+
+            <h2 style="color:#2e7d32;">
+                🏡 Farm Information
+            </h2>
+
+            <table style="width:100%;border-collapse:collapse;" border="1">
+
+                <tr>
+
+                    <td><b>Farm Name</b></td>
 
                     <td>${currentPlan.farmName}</td>
 
@@ -1058,13 +1129,85 @@ async function downloadCropPDF() {
 
             <br>
 
-            <h3>🌱 Farming Details</h3>
+            <h2 style="color:#2e7d32;">
+                🌱 Crop Information
+            </h2>
 
-            <table border="1"
+            <table style="width:100%;border-collapse:collapse;" border="1">
 
-                style="width:100%;
-                border-collapse:collapse;
-                text-align:center;">
+                <tr>
+
+                    <td><b>Season</b></td>
+
+                    <td>${crop.season}</td>
+
+                </tr>
+
+                <tr>
+
+                    <td><b>Sowing</b></td>
+
+                    <td>${crop.sowing}</td>
+
+                </tr>
+
+                <tr>
+
+                    <td><b>Harvest</b></td>
+
+                    <td>${crop.harvest}</td>
+
+                </tr>
+
+                <tr>
+
+                    <td><b>Duration</b></td>
+
+                    <td>${crop.duration}</td>
+
+                </tr>
+
+                <tr>
+
+                    <td><b>Temperature</b></td>
+
+                    <td>${crop.temperature}</td>
+
+                </tr>
+
+                <tr>
+
+                    <td><b>Soil</b></td>
+
+                    <td>${crop.soil}</td>
+
+                </tr>
+
+                <tr>
+
+                    <td><b>Rainfall</b></td>
+
+                    <td>${crop.rainfall}</td>
+
+                </tr>
+
+                <tr>
+
+                    <td><b>Soil pH</b></td>
+
+                    <td>${crop.ph}</td>
+
+                </tr>
+
+            </table>
+
+            <br>
+
+            <h2 style="color:#2e7d32;">
+                🌾 Farming Recommendation
+            </h2>
+
+            <table style="width:100%;border-collapse:collapse;text-align:center;" border="1">
 
                 <tr>
 
@@ -1098,19 +1241,19 @@ async function downloadCropPDF() {
 
             <br>
 
-            <h3>💰 Production</h3>
+            <h2 style="color:#2e7d32;">
+                💰 Production Summary
+            </h2>
 
-            <table border="1"
-
-                style="width:100%;
-                border-collapse:collapse;
-                text-align:center;">
+            <table style="width:100%;border-collapse:collapse;text-align:center;" border="1">
 
                 <tr>
 
                     <th>Yield</th>
 
-                    <th>Income</th>
+                    <th>Market Price</th>
+
+                    <th>Estimated Income</th>
 
                 </tr>
 
@@ -1118,7 +1261,9 @@ async function downloadCropPDF() {
 
                     <td>${currentPlan.yield.toFixed(2)} Quintal</td>
 
-                    <td style="color:green;">
+                    <td>₹ ${crop.price}</td>
+
+                    <td style="color:#2e7d32;font-weight:bold;">
 
                         ₹ ${currentPlan.income.toLocaleString("en-IN")}
 
@@ -1130,19 +1275,69 @@ async function downloadCropPDF() {
 
             <br>
 
+            <h2 style="color:#2e7d32;">
+                🌱 Recommended Varieties
+            </h2>
+
+            <ul>
+
+                ${crop.varieties.map(item => `<li>${item}</li>`).join("")}
+
+            </ul>
+
+            <h2 style="color:#2e7d32;">
+                🦠 Major Diseases
+            </h2>
+
+            <ul>
+
+                ${crop.diseases.map(item => `<li>${item}</li>`).join("")}
+
+            </ul>
+
+            <h2 style="color:#2e7d32;">
+                🐛 Major Pests
+            </h2>
+
+            <ul>
+
+                ${crop.pests.map(item => `<li>${item}</li>`).join("")}
+
+            </ul>
+
+            <h2 style="color:#2e7d32;">
+                💊 Treatment
+            </h2>
+
+            <ul>
+
+                ${crop.treatment.map(item => `<li>${item}</li>`).join("")}
+
+            </ul>
+
+            <br>
+
             <hr>
 
-            <p style="text-align:center;">
+            <div style="text-align:center;color:#777;">
 
-                Generated by
+                <h3 style="margin-bottom:5px;">
+                    🌾 Kisan Calculator
+                </h3>
 
-                <b>Kisan Calculator</b>
+                <p>
+                    Smart Farming Toolkit
+                </p>
 
-            </p>
+                <p>
+                    Generated on ${new Date().toLocaleDateString("en-IN")}
+                </p>
+
+            </div>
 
         </div>
 
-    `;
+        `;
 
     report.style.display = "block";
 
@@ -1169,3 +1364,49 @@ async function downloadCropPDF() {
     pdf.save(currentPlan.crop + "-Report.pdf");
 
 }
+
+function loadFarmerProfile() {
+
+    const farmer = getFarmerProfile();
+
+    document.getElementById("farmerName").value =
+        farmer.name || "";
+
+    document.getElementById("farmerMobile").value =
+        farmer.mobile || "";
+
+    document.getElementById("farmerVillage").value =
+        farmer.village || "";
+
+    document.getElementById("farmerDistrict").value =
+        farmer.district || "";
+
+    document.getElementById("farmerState").value =
+        farmer.state || "";
+
+}
+
+document.getElementById("saveFarmerProfile").onclick = () => {
+
+    saveFarmerProfile({
+
+        name:
+            document.getElementById("farmerName").value,
+
+        mobile:
+            document.getElementById("farmerMobile").value,
+
+        village:
+            document.getElementById("farmerVillage").value,
+
+        district:
+            document.getElementById("farmerDistrict").value,
+
+        state:
+            document.getElementById("farmerState").value
+
+    });
+
+    alert("✅ Farmer Profile Saved");
+
+};

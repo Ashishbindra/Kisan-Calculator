@@ -161,3 +161,23 @@ function importData(data) {
     localStorage.setItem("area_records", JSON.stringify(data.records || []));
 
 }
+
+const FARMER_KEY = "kisan_farmer_profile";
+
+function saveFarmerProfile(profile){
+
+    localStorage.setItem(
+        FARMER_KEY,
+        JSON.stringify(profile)
+    );
+
+}
+
+function getFarmerProfile(){
+
+    return JSON.parse(
+        localStorage.getItem(FARMER_KEY)
+    ) || {};
+
+}
+

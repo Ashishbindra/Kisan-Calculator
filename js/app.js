@@ -648,3 +648,11 @@ function loadTodayTasks(){
     container.innerHTML=html;
 
 }
+
+document.querySelector(".open-profile").onclick = () => {
+
+    showPage("farmerProfilePage");
+
+    loadFarmerProfile();
+
+};

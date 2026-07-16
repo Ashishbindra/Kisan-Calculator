@@ -38,6 +38,17 @@ const CROP_DATABASE = {
             "Recommended Insecticide"
         ],
 
+        states: [
+            "Uttar Pradesh",
+            "Punjab",
+            "Haryana",
+            "Madhya Pradesh",
+            "Rajasthan",
+            "Bihar"
+        ],
+
+        irrigationRequired: true,
+
         seed: 100,
 
         fertilizer: {
@@ -71,7 +82,16 @@ const CROP_DATABASE = {
             "MTU-1010",
             "PR-126"
         ],
+        states: [
+            "Uttar Pradesh",
+            "Punjab",
+            "Haryana",
+            "Madhya Pradesh",
+            "Rajasthan",
+            "Bihar"
+        ],
 
+        irrigationRequired: true,
         diseases: [
             "Blast (झुलसा रोग)",
             "Bacterial Leaf Blight",
@@ -123,7 +143,16 @@ const CROP_DATABASE = {
             "DHM-117",
             "Ganga-5"
         ],
+        states: [
+            "Uttar Pradesh",
+            "Punjab",
+            "Haryana",
+            "Madhya Pradesh",
+            "Rajasthan",
+            "Bihar"
+        ],
 
+        irrigationRequired: true,
         diseases: [
             "Turcicum Leaf Blight",
             "Downy Mildew",
@@ -174,7 +203,16 @@ const CROP_DATABASE = {
             "Varuna",
             "RH-749"
         ],
+        states: [
+            "Uttar Pradesh",
+            "Punjab",
+            "Haryana",
+            "Madhya Pradesh",
+            "Rajasthan",
+            "Bihar"
+        ],
 
+        irrigationRequired: true,
         diseases: [
             "Alternaria Blight",
             "White Rust",
@@ -225,7 +263,16 @@ const CROP_DATABASE = {
             "Vijay",
             "JG-14"
         ],
+        states: [
+            "Uttar Pradesh",
+            "Punjab",
+            "Haryana",
+            "Madhya Pradesh",
+            "Rajasthan",
+            "Bihar"
+        ],
 
+        irrigationRequired: true,
         diseases: [
             "Wilt",
             "Dry Root Rot",
@@ -275,7 +322,16 @@ const CROP_DATABASE = {
             "Co-98014",
             "CoS-767"
         ],
+        states: [
+            "Uttar Pradesh",
+            "Punjab",
+            "Haryana",
+            "Madhya Pradesh",
+            "Rajasthan",
+            "Bihar"
+        ],
 
+        irrigationRequired: true,
         diseases: [
             "Red Rot",
             "Smut",
@@ -322,7 +378,16 @@ const CROP_DATABASE = {
         soil: "Sandy Loam Soil (बलुई दोमट मिट्टी)",
         rainfall: "50 - 75 cm",
         ph: "5.5 - 6.8",
+        states: [
+            "Uttar Pradesh",
+            "Punjab",
+            "Haryana",
+            "Madhya Pradesh",
+            "Rajasthan",
+            "Bihar"
+        ],
 
+        irrigationRequired: true,
         varieties: [
             "Kufri Jyoti",
             "Kufri Pukhraj",
@@ -380,7 +445,16 @@ const CROP_DATABASE = {
             "Bhima Shakti",
             "Agrifound Light Red"
         ],
+        states: [
+            "Uttar Pradesh",
+            "Punjab",
+            "Haryana",
+            "Madhya Pradesh",
+            "Rajasthan",
+            "Bihar"
+        ],
 
+        irrigationRequired: true,
         diseases: [
             "Purple Blotch",
             "Stemphylium Blight",
@@ -431,7 +505,16 @@ const CROP_DATABASE = {
             "Arka Vikas",
             "Punjab Chhuhara"
         ],
+        states: [
+            "Uttar Pradesh",
+            "Punjab",
+            "Haryana",
+            "Madhya Pradesh",
+            "Rajasthan",
+            "Bihar"
+        ],
 
+        irrigationRequired: true,
         diseases: [
             "Early Blight",
             "Late Blight",
@@ -482,7 +565,16 @@ const CROP_DATABASE = {
             "Bunny Bt",
             "JKCH-1947"
         ],
+        states: [
+            "Uttar Pradesh",
+            "Punjab",
+            "Haryana",
+            "Madhya Pradesh",
+            "Rajasthan",
+            "Bihar"
+        ],
 
+        irrigationRequired: true,
         diseases: [
             "Bacterial Blight",
             "Alternaria Leaf Spot",
@@ -533,7 +625,16 @@ const CROP_DATABASE = {
             "NRC-37",
             "RVS-2001-4"
         ],
+        states: [
+            "Uttar Pradesh",
+            "Punjab",
+            "Haryana",
+            "Madhya Pradesh",
+            "Rajasthan",
+            "Bihar"
+        ],
 
+        irrigationRequired: true,
         diseases: [
             "Yellow Mosaic Virus",
             "Rust",
@@ -587,7 +688,16 @@ const CROP_DATABASE = {
             "RHB-177",
             "MPMH-17"
         ],
+        states: [
+            "Uttar Pradesh",
+            "Punjab",
+            "Haryana",
+            "Madhya Pradesh",
+            "Rajasthan",
+            "Bihar"
+        ],
 
+        irrigationRequired: true,
         diseases: [
             "Downy Mildew",
             "Ergot",
@@ -644,7 +754,16 @@ const CROP_DATABASE = {
             "Grain Mold",
             "Downy Mildew"
         ],
+        states: [
+            "Uttar Pradesh",
+            "Punjab",
+            "Haryana",
+            "Madhya Pradesh",
+            "Rajasthan",
+            "Bihar"
+        ],
 
+        irrigationRequired: true,
         pests: [
             "Shoot Fly",
             "Stem Borer",
@@ -689,7 +808,16 @@ const CROP_DATABASE = {
             "TAG-24",
             "Kadiri-6"
         ],
+        states: [
+            "Uttar Pradesh",
+            "Punjab",
+            "Haryana",
+            "Madhya Pradesh",
+            "Rajasthan",
+            "Bihar"
+        ],
 
+        irrigationRequired: true,
         diseases: [
             "Tikka Disease",
             "Rust",
@@ -740,7 +868,16 @@ const CROP_DATABASE = {
             "IPM-2-3",
             "Samrat"
         ],
+        states: [
+            "Uttar Pradesh",
+            "Punjab",
+            "Haryana",
+            "Madhya Pradesh",
+            "Rajasthan",
+            "Bihar"
+        ],
 
+        irrigationRequired: true,
         diseases: [
             "Yellow Mosaic Virus",
             "Powdery Mildew",
@@ -802,7 +939,16 @@ const CROP_DATABASE = {
             "Pod Borer",
             "Aphid"
         ],
+        states: [
+            "Uttar Pradesh",
+            "Punjab",
+            "Haryana",
+            "Madhya Pradesh",
+            "Rajasthan",
+            "Bihar"
+        ],
 
+        irrigationRequired: true,
         treatment: [
             "Neem Oil Spray",
             "Carbendazim Spray",
@@ -847,7 +993,16 @@ const CROP_DATABASE = {
             "Anthracnose",
             "Damping Off"
         ],
+        states: [
+            "Uttar Pradesh",
+            "Punjab",
+            "Haryana",
+            "Madhya Pradesh",
+            "Rajasthan",
+            "Bihar"
+        ],
 
+        irrigationRequired: true,
         pests: [
             "Thrips",
             "Mite",
@@ -892,7 +1047,16 @@ const CROP_DATABASE = {
             "Arka Kusumkar",
             "Pant Rituraj"
         ],
+        states: [
+            "Uttar Pradesh",
+            "Punjab",
+            "Haryana",
+            "Madhya Pradesh",
+            "Rajasthan",
+            "Bihar"
+        ],
 
+        irrigationRequired: true,
         diseases: [
             "Little Leaf",
             "Bacterial Wilt",
@@ -943,7 +1107,16 @@ const CROP_DATABASE = {
             "Pride of India",
             "Green Express"
         ],
+        states: [
+            "Uttar Pradesh",
+            "Punjab",
+            "Haryana",
+            "Madhya Pradesh",
+            "Rajasthan",
+            "Bihar"
+        ],
 
+        irrigationRequired: true,
         diseases: [
             "Black Rot",
             "Downy Mildew",
@@ -994,7 +1167,16 @@ const CROP_DATABASE = {
             "Pant Gobhi-3",
             "Early Kunwari"
         ],
+        states: [
+            "Uttar Pradesh",
+            "Punjab",
+            "Haryana",
+            "Madhya Pradesh",
+            "Rajasthan",
+            "Bihar"
+        ],
 
+        irrigationRequired: true,
         diseases: [
             "Black Rot",
             "Downy Mildew",

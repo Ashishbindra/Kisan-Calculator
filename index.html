@@ -245,8 +245,46 @@
                         <p>पुराने Crop Plans</p>
 
                     </div>
-                </div>
 
+                    <div class="tool-card open-compare">
+
+                        <i class="fa-solid fa-scale-balanced"></i>
+
+                        <h4>Compare Crops</h4>
+
+                        <p>Compare Two Crops</p>
+
+                    </div>
+
+                    <div class="tool-card open-crop-library">
+
+                        <i class="fa-solid fa-seedling"></i>
+
+                        <h4>Crop Library</h4>
+
+                        <p>सभी फसलों की जानकारी</p>
+
+                    </div>
+                    <div class="tool-card open-compare">
+
+                        <i class="fa-solid fa-scale-balanced"></i>
+
+                        <h4>Compare Crops</h4>
+
+                        <p>दो फसलों की तुलना</p>
+
+                    </div>
+                    <div class="tool-card open-advisor">
+
+                        <i class="fa-solid fa-robot"></i>
+
+                        <h4>Crop Advisor</h4>
+
+                        <p>AI Crop Suggestion</p>
+
+                    </div>
+
+                </div>
             </section>
 
             <!-- ================= AREA ================= -->
@@ -950,7 +988,212 @@
                 <div id="cropDetailsContent"></div>
 
             </section>
-            
+            <section id="cropLibraryPage" class="page">
+
+                <div class="page-header">
+
+                    <h2>🌾 Crop Library</h2>
+
+                    <p>सभी फसलों की जानकारी</p>
+
+                </div>
+
+                <div class="form-group">
+
+                    <input type="text" id="cropSearch" class="input" placeholder="🔍 Search Crop...">
+
+                </div>
+
+                <div id="cropLibraryList"></div>
+
+            </section>
+
+            <section id="compareCropPage" class="page">
+
+                <div class="page-header">
+
+                    <h2>⚖️ Compare Crops</h2>
+
+                    <p>दो फसलों की तुलना करें</p>
+
+                </div>
+
+                <div class="card">
+
+                    <div class="form-group">
+
+                        <label class="label">🌾 First Crop</label>
+
+                        <select id="compareCrop1" class="input"></select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label class="label">🌾 Second Crop</label>
+
+                        <select id="compareCrop2" class="input"></select>
+
+                    </div>
+
+                    <button id="compareBtn" class="btn">
+
+                        ⚖️ Compare Crops
+
+                    </button>
+
+                </div>
+
+                <div id="compareResult"></div>
+
+            </section>
+
+            <section id="compareCropPage" class="page">
+
+                <div class="page-header">
+
+                    <h2>⚖️ Compare Crops</h2>
+
+                    <p>दो फसलों की तुलना करें</p>
+
+                </div>
+
+                <div class="card">
+
+                    <div class="form-group">
+
+                        <label class="label">Crop 1</label>
+
+                        <select id="compareCrop1" class="input"></select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label class="label">Crop 2</label>
+
+                        <select id="compareCrop2" class="input"></select>
+
+                    </div>
+
+                    <button id="compareBtn" class="btn">
+
+                        Compare
+
+                    </button>
+
+                </div>
+
+                <div id="compareResult"></div>
+
+            </section>
+
+            <section id="cropAdvisorPage" class="page">
+
+                <div class="page-header">
+
+                    <h2>🤖 Smart Crop Advisor</h2>
+
+                    <p>अपने खेत के लिए सबसे उपयुक्त फसल चुनें</p>
+
+                </div>
+
+                <div class="card">
+                    <div class="form-group">
+
+                        <label class="label">
+                            📍 State
+                        </label>
+
+                        <select id="advisorState" class="input">
+
+                            <option value="">Select State</option>
+
+                            <option>Uttar Pradesh</option>
+                            <option>Bihar</option>
+                            <option>Madhya Pradesh</option>
+                            <option>Rajasthan</option>
+                            <option>Punjab</option>
+                            <option>Haryana</option>
+                            <option>Gujarat</option>
+                            <option>Maharashtra</option>
+                            <option>Odisha</option>
+                            <option>West Bengal</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label class="label">
+                            💧 Irrigation Available
+                        </label>
+
+                        <select id="advisorWater" class="input">
+
+                            <option value="">Select</option>
+
+                            <option value="yes">Yes</option>
+
+                            <option value="no">No</option>
+
+                        </select>
+
+                    </div>
+                    <div class="form-group">
+
+                        <label class="label">📅 Current Month</label>
+
+                        <select id="advisorMonth" class="input">
+
+                            <option value="">Select Month</option>
+
+                            <option>January</option>
+                            <option>February</option>
+                            <option>March</option>
+                            <option>April</option>
+                            <option>May</option>
+                            <option>June</option>
+                            <option>July</option>
+                            <option>August</option>
+                            <option>September</option>
+                            <option>October</option>
+                            <option>November</option>
+                            <option>December</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label class="label">🌍 Soil Type</label>
+
+                        <select id="advisorSoil" class="input">
+
+                            <option value="">Select Soil</option>
+
+                            <option>Loamy Soil (दोमट मिट्टी)</option>
+                            <option>Black Soil (काली मिट्टी)</option>
+                            <option>Clay Soil (चिकनी मिट्टी)</option>
+                            <option>Sandy Soil (बलुई मिट्टी)</option>
+
+                        </select>
+
+                    </div>
+
+                    <button id="advisorBtn" class="btn">
+
+                        🌾 Suggest Best Crop
+
+                    </button>
+
+                </div>
+
+                <div id="advisorResult"></div>
+
+            </section>
         </main>
 
         <div id="farmDialog" class="dialog">

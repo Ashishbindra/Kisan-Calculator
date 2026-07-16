@@ -1340,3 +1340,70 @@ button{
     font-size:15px;
 
 }
+
+.compare-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:20px;
+
+}
+
+.compare-table th{
+
+    background:#2e7d32;
+
+    color:white;
+
+}
+
+.compare-table td,
+.compare-table th{
+
+    border:1px solid #ddd;
+
+    padding:10px;
+
+    text-align:center;
+
+}
+
+.compare-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:20px;
+
+    font-size:14px;
+
+}
+
+.compare-table th{
+
+    background:#2e7d32;
+
+    color:#fff;
+
+    padding:12px;
+
+}
+
+.compare-table td{
+
+    padding:12px;
+
+    border:1px solid #ddd;
+
+    text-align:center;
+
+}
+
+.compare-table tr:nth-child(even){
+
+    background:#f8f8f8;
+
+}

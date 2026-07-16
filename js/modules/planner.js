@@ -473,3 +473,401 @@ function showCropDetails(cropKey) {
         `;
 }
 
+function renderCropLibrary(search = "") {
+
+    const container = document.getElementById("cropLibraryList");
+
+    let html = "";
+
+    Object.keys(CROP_DATABASE).forEach(key => {
+
+        const crop = CROP_DATABASE[key];
+
+        if (
+            crop.name.toLowerCase().includes(search.toLowerCase())
+        ) {
+
+            html += `
+
+            <div class="card crop-card">
+
+                <h3>${crop.name}</h3>
+
+                <p>
+
+                    🌦️ ${crop.season}
+
+                </p>
+
+                <button
+                    class="btn"
+                    onclick="showCropDetails('${key}')">
+
+                    📖 View Details
+
+                </button>
+
+            </div>
+
+            `;
+
+        }
+
+    });
+
+    container.innerHTML = html;
+
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const search = document.getElementById("cropSearch");
+
+    if (search) {
+
+        search.oninput = () => {
+
+            renderCropLibrary(search.value);
+
+        };
+
+    }
+
+});
+
+function loadCompareDropdown() {
+
+    const crop1 = document.getElementById("compareCrop1");
+    const crop2 = document.getElementById("compareCrop2");
+
+    crop1.innerHTML = "";
+    crop2.innerHTML = "";
+
+    Object.keys(CROP_DATABASE).forEach(key => {
+
+        const crop = CROP_DATABASE[key];
+
+        crop1.innerHTML += `
+            <option value="${key}">
+                ${crop.name}
+            </option>
+        `;
+
+        crop2.innerHTML += `
+            <option value="${key}">
+                ${crop.name}
+            </option>
+        `;
+
+    });
+
+}
+
+document.getElementById("compareBtn").onclick = compareCrops;
+
+function compareCrops() {
+
+    const crop1 = CROP_DATABASE[
+        document.getElementById("compareCrop1").value
+    ];
+
+    const crop2 = CROP_DATABASE[
+        document.getElementById("compareCrop2").value
+    ];
+
+    document.getElementById("compareResult").innerHTML = `
+
+<table class="compare-table">
+
+<tr>
+
+<th>Feature</th>
+
+<th>${crop1.name}</th>
+
+<th>${crop2.name}</th>
+
+</tr>
+
+<tr>
+
+<td>Season</td>
+
+<td>${crop1.season}</td>
+
+<td>${crop2.season}</td>
+
+</tr>
+
+<tr>
+
+<td>Seed</td>
+
+<td>${crop1.seed} KG</td>
+
+<td>${crop2.seed} KG</td>
+
+</tr>
+
+<tr>
+
+<td>Yield</td>
+
+<td>${crop1.yield}</td>
+
+<td>${crop2.yield}</td>
+
+</tr>
+
+<tr>
+
+<td>Price</td>
+
+<td>₹${crop1.price}</td>
+
+<td>₹${crop2.price}</td>
+
+</tr>
+
+<tr>
+
+<td>Irrigation</td>
+
+<td>${crop1.irrigation}</td>
+
+<td>${crop2.irrigation}</td>
+
+</tr>
+
+</table>
+
+`;
+
+}
+
+function loadCompareDropdown(){
+
+    const crop1=document.getElementById("compareCrop1");
+
+    const crop2=document.getElementById("compareCrop2");
+
+    crop1.innerHTML="";
+
+    crop2.innerHTML="";
+
+    Object.keys(CROP_DATABASE).forEach(key=>{
+
+        const crop=CROP_DATABASE[key];
+
+        crop1.innerHTML+=`
+
+            <option value="${key}">
+
+                ${crop.name}
+
+            </option>
+
+        `;
+
+        crop2.innerHTML+=`
+
+            <option value="${key}">
+
+                ${crop.name}
+
+            </option>
+
+        `;
+
+    });
+
+}
+
+document.getElementById("compareBtn").onclick=compareCrops;
+
+function compareCrops(){
+
+    const crop1=CROP_DATABASE[
+        document.getElementById("compareCrop1").value
+    ];
+
+    const crop2=CROP_DATABASE[
+        document.getElementById("compareCrop2").value
+    ];
+
+    document.getElementById("compareResult").innerHTML=`
+
+<div class="card">
+
+<table class="compare-table">
+
+<tr>
+
+<th>Feature</th>
+
+<th>${crop1.name}</th>
+
+<th>${crop2.name}</th>
+
+</tr>
+
+<tr>
+
+<td>🌦️ Season</td>
+
+<td>${crop1.season}</td>
+
+<td>${crop2.season}</td>
+
+</tr>
+
+<tr>
+
+<td>🌱 Seed</td>
+
+<td>${crop1.seed} KG</td>
+
+<td>${crop2.seed} KG</td>
+
+</tr>
+
+<tr>
+
+<td>💧 Irrigation</td>
+
+<td>${crop1.irrigation}</td>
+
+<td>${crop2.irrigation}</td>
+
+</tr>
+
+<tr>
+
+<td>🌾 Yield</td>
+
+<td>${crop1.yield} Qt</td>
+
+<td>${crop2.yield} Qt</td>
+
+</tr>
+
+<tr>
+
+<td>💰 Price</td>
+
+<td>₹${crop1.price}</td>
+
+<td>₹${crop2.price}</td>
+
+</tr>
+
+<tr>
+
+<td>🌍 Soil</td>
+
+<td>${crop1.soil}</td>
+
+<td>${crop2.soil}</td>
+
+</tr>
+
+<tr>
+
+<td>🌡️ Temperature</td>
+
+<td>${crop1.temperature}</td>
+
+<td>${crop2.temperature}</td>
+
+</tr>
+
+<tr>
+
+<td>📅 Duration</td>
+
+<td>${crop1.duration}</td>
+
+<td>${crop2.duration}</td>
+
+</tr>
+
+</table>
+
+</div>
+
+`;
+
+}
+
+document.getElementById("advisorBtn").onclick = suggestCrop;
+
+function suggestCrop(){
+
+    const month =
+        document.getElementById("advisorMonth").value;
+
+    const soil =
+        document.getElementById("advisorSoil").value;
+
+    const result =
+        document.getElementById("advisorResult");
+
+    let crops = [];
+
+    Object.keys(CROP_DATABASE).forEach(key=>{
+
+        const crop = CROP_DATABASE[key];
+
+        if(crop.soil.includes(soil.split(" ")[0])){
+
+            crops.push(crop);
+
+        }
+
+    });
+
+    if(crops.length===0){
+
+        result.innerHTML = `
+
+            <div class="card">
+
+                ❌ No Crop Found
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+    let html = `<div class="card">
+
+<h2>🌾 Recommended Crops</h2>`;
+
+    crops.forEach(crop=>{
+
+        html += `
+
+        <div class="list-item">
+
+            <h3>${crop.name}</h3>
+
+            <p>🌦️ ${crop.season}</p>
+
+            <p>🌱 Seed : ${crop.seed} KG</p>
+
+            <p>💧 Irrigation : ${crop.irrigation}</p>
+
+        </div>
+
+        `;
+
+    });
+
+    html += "</div>";
+
+    result.innerHTML = html;
+
+}

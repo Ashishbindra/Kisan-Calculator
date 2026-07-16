@@ -520,3 +520,57 @@ document.getElementById("plannerSeason").onchange = function () {
     });
 
 };
+
+const cropLibraryBtn = document.querySelector(".open-crop-library");
+
+if (cropLibraryBtn) {
+
+    cropLibraryBtn.onclick = () => {
+
+        showPage("cropLibraryPage");
+
+        renderCropLibrary();
+
+    };
+
+}
+
+const compareCard = document.querySelector(".open-compare");
+
+if (compareCard) {
+
+    compareCard.onclick = () => {
+
+        showPage("compareCropPage");
+
+        loadCompareDropdown();
+
+    };
+
+}
+
+const compareBtnCard=document.querySelector(".open-compare");
+
+if(compareBtnCard){
+
+    compareBtnCard.onclick=()=>{
+
+        showPage("compareCropPage");
+
+        loadCompareDropdown();
+
+    }
+
+}
+
+const advisorCard = document.querySelector(".open-advisor");
+
+if(advisorCard){
+
+    advisorCard.onclick = ()=>{
+
+        showPage("cropAdvisorPage");
+
+    }
+
+}

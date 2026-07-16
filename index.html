@@ -66,32 +66,68 @@
         <main>
             <div class="card dashboard-card">
 
-                <h2>📊 Dashboard</h2>
+                <h2>👋 Welcome Farmer</h2>
+
+                <p id="todayDate" class="dashboard-date"></p>
 
                 <div class="dashboard-grid">
 
                     <div class="dash-box">
+
+                        <div class="dash-icon">🏡</div>
+
                         <h3 id="totalFarms">0</h3>
-                        <p>🏡 Farms</p>
+
+                        <p>My Farms</p>
+
                     </div>
 
                     <div class="dash-box">
+
+                        <div class="dash-icon">🌾</div>
+
                         <h3 id="totalPlans">0</h3>
-                        <p>🌾 Plans</p>
+
+                        <p>Crop Plans</p>
+
                     </div>
 
                     <div class="dash-box">
+
+                        <div class="dash-icon">📏</div>
+
                         <h3 id="totalArea">0</h3>
-                        <p>📏 Acre</p>
+
+                        <p>Total Acre</p>
+
                     </div>
 
                     <div class="dash-box">
+
+                        <div class="dash-icon">💰</div>
+
                         <h3 id="totalIncome">₹0</h3>
-                        <p>💰 Income</p>
+
+                        <p>Estimated Income</p>
+
                     </div>
 
                 </div>
+                <div class="card">
 
+                    <h2>🌞 Today's Farming Tasks</h2>
+
+                    <div id="todayTasks">
+
+                        <div class="empty-task">
+
+                            No tasks for today.
+
+                        </div>
+
+                    </div>
+
+                </div>
             </div>
 
             <!-- ================= HOME ================= -->
@@ -895,7 +931,11 @@
                         Generate Plan
 
                     </button>
+                    <button id="downloadPdf" class="btn" style="margin-top:15px;display:none;">
 
+                        📄 Download PDF
+
+                    </button>
                 </div>
 
                 <div id="plannerResult" class="card result-card">
@@ -1314,7 +1354,11 @@
 
     </div>
 
+    <div id="pdfReport" style="display:none;background:#fff;padding:30px;width:800px;">
 
+        <div id="pdfContent"></div>
+
+    </div>
 
     <script src="js/storage.js"></script>
 
@@ -1334,6 +1378,9 @@
 
     <script src="js/app.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </body>
 
 </html>

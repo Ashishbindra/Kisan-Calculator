@@ -154,6 +154,8 @@ function generatePlan() {
 
         village: currentPlannerFarm.village,
 
+        sowingDate: new Date().toISOString(),
+
         owner: currentPlannerFarm.owner,
 
         crop: crop.name,
@@ -240,6 +242,7 @@ function generatePlan() {
         showCropDetails(cropKey);
 
     };
+    document.getElementById("downloadPdf").style.display = "block";
 }
 
 const savePlanBtn = document.getElementById("savePlan");
@@ -645,21 +648,21 @@ function compareCrops() {
 
 }
 
-function loadCompareDropdown(){
+function loadCompareDropdown() {
 
-    const crop1=document.getElementById("compareCrop1");
+    const crop1 = document.getElementById("compareCrop1");
 
-    const crop2=document.getElementById("compareCrop2");
+    const crop2 = document.getElementById("compareCrop2");
 
-    crop1.innerHTML="";
+    crop1.innerHTML = "";
 
-    crop2.innerHTML="";
+    crop2.innerHTML = "";
 
-    Object.keys(CROP_DATABASE).forEach(key=>{
+    Object.keys(CROP_DATABASE).forEach(key => {
 
-        const crop=CROP_DATABASE[key];
+        const crop = CROP_DATABASE[key];
 
-        crop1.innerHTML+=`
+        crop1.innerHTML += `
 
             <option value="${key}">
 
@@ -669,7 +672,7 @@ function loadCompareDropdown(){
 
         `;
 
-        crop2.innerHTML+=`
+        crop2.innerHTML += `
 
             <option value="${key}">
 
@@ -683,19 +686,19 @@ function loadCompareDropdown(){
 
 }
 
-document.getElementById("compareBtn").onclick=compareCrops;
+document.getElementById("compareBtn").onclick = compareCrops;
 
-function compareCrops(){
+function compareCrops() {
 
-    const crop1=CROP_DATABASE[
+    const crop1 = CROP_DATABASE[
         document.getElementById("compareCrop1").value
     ];
 
-    const crop2=CROP_DATABASE[
+    const crop2 = CROP_DATABASE[
         document.getElementById("compareCrop2").value
     ];
 
-    document.getElementById("compareResult").innerHTML=`
+    document.getElementById("compareResult").innerHTML = `
 
 <div class="card">
 
@@ -801,7 +804,7 @@ function compareCrops(){
 
 document.getElementById("advisorBtn").onclick = suggestCrop;
 
-function suggestCrop(){
+function suggestCrop() {
 
     const month =
         document.getElementById("advisorMonth").value;
@@ -814,11 +817,11 @@ function suggestCrop(){
 
     let crops = [];
 
-    Object.keys(CROP_DATABASE).forEach(key=>{
+    Object.keys(CROP_DATABASE).forEach(key => {
 
         const crop = CROP_DATABASE[key];
 
-        if(crop.soil.includes(soil.split(" ")[0])){
+        if (crop.soil.includes(soil.split(" ")[0])) {
 
             crops.push(crop);
 
@@ -826,7 +829,7 @@ function suggestCrop(){
 
     });
 
-    if(crops.length===0){
+    if (crops.length === 0) {
 
         result.innerHTML = `
 
@@ -846,7 +849,7 @@ function suggestCrop(){
 
 <h2>🌾 Recommended Crops</h2>`;
 
-    crops.forEach(crop=>{
+    crops.forEach(crop => {
 
         html += `
 
@@ -869,5 +872,300 @@ function suggestCrop(){
     html += "</div>";
 
     result.innerHTML = html;
+
+}
+
+function loadTodayTasks() {
+
+    const container = document.getElementById("todayTasks");
+
+    const plans = getPlans();
+
+    let html = "";
+
+    const today = new Date();
+
+    plans.forEach(plan => {
+
+        const crop = Object.values(CROP_DATABASE)
+            .find(c => c.name === plan.crop);
+
+        if (!crop) return;
+
+        const sowDate = new Date(plan.sowingDate);
+
+        const days = Math.floor(
+
+            (today - sowDate) / (1000 * 60 * 60 * 24)
+
+        );
+
+        if (days === crop.workSchedule.firstIrrigation) {
+
+            html += createTask(
+
+                "💧",
+
+                "First Irrigation",
+
+                plan.crop,
+
+                plan.farmName
+
+            );
+
+        }
+
+        if (days === crop.workSchedule.fertilizer) {
+
+            html += createTask(
+
+                "🧪",
+
+                "Apply Fertilizer",
+
+                plan.crop,
+
+                plan.farmName
+
+            );
+
+        }
+
+        if (days === crop.workSchedule.harvest) {
+
+            html += createTask(
+
+                "🌾",
+
+                "Harvest Ready",
+
+                plan.crop,
+
+                plan.farmName
+
+            );
+
+        }
+
+    });
+
+    if (html === "") {
+
+        html = `
+
+        <div class="empty-task">
+
+            🎉 No farming work due today.
+
+        </div>
+
+        `;
+
+    }
+
+    container.innerHTML = html;
+
+}
+
+function createTask(icon, title, crop, farm) {
+
+    return `
+
+    <div class="task-card">
+
+        <div class="task-icon">
+
+            ${icon}
+
+        </div>
+
+        <div>
+
+            <div class="task-title">
+
+                ${title}
+
+            </div>
+
+            <div class="task-desc">
+
+                🌾 ${crop}
+
+                <br>
+
+                🏡 ${farm}
+
+            </div>
+
+        </div>
+
+    </div>
+
+    `;
+
+}
+
+document.getElementById("downloadPdf").onclick = downloadCropPDF;
+
+async function downloadCropPDF() {
+
+    const report = document.getElementById("pdfReport");
+
+    document.getElementById("pdfContent").innerHTML = `
+
+        <div style="font-family:Arial;padding:20px;">
+
+            <h1 style="color:#2e7d32;">
+                🌾 Kisan Calculator
+            </h1>
+
+            <h2>
+                Crop Planning Report
+            </h2>
+
+            <hr>
+
+            <h3>👤 Farm Information</h3>
+
+            <table style="width:100%;border-collapse:collapse;">
+
+                <tr>
+
+                    <td><b>Farm</b></td>
+
+                    <td>${currentPlan.farmName}</td>
+
+                </tr>
+
+                <tr>
+
+                    <td><b>Crop</b></td>
+
+                    <td>${currentPlan.crop}</td>
+
+                </tr>
+
+                <tr>
+
+                    <td><b>Area</b></td>
+
+                    <td>${currentPlan.area.toFixed(2)} Acre</td>
+
+                </tr>
+
+            </table>
+
+            <br>
+
+            <h3>🌱 Farming Details</h3>
+
+            <table border="1"
+
+                style="width:100%;
+                border-collapse:collapse;
+                text-align:center;">
+
+                <tr>
+
+                    <th>Seed</th>
+
+                    <th>Urea</th>
+
+                    <th>DAP</th>
+
+                    <th>Potash</th>
+
+                    <th>Irrigation</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>${currentPlan.seed.toFixed(2)} KG</td>
+
+                    <td>${currentPlan.urea.toFixed(2)} KG</td>
+
+                    <td>${currentPlan.dap.toFixed(2)} KG</td>
+
+                    <td>${currentPlan.potash.toFixed(2)} KG</td>
+
+                    <td>${currentPlan.irrigation}</td>
+
+                </tr>
+
+            </table>
+
+            <br>
+
+            <h3>💰 Production</h3>
+
+            <table border="1"
+
+                style="width:100%;
+                border-collapse:collapse;
+                text-align:center;">
+
+                <tr>
+
+                    <th>Yield</th>
+
+                    <th>Income</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>${currentPlan.yield.toFixed(2)} Quintal</td>
+
+                    <td style="color:green;">
+
+                        ₹ ${currentPlan.income.toLocaleString("en-IN")}
+
+                    </td>
+
+                </tr>
+
+            </table>
+
+            <br>
+
+            <hr>
+
+            <p style="text-align:center;">
+
+                Generated by
+
+                <b>Kisan Calculator</b>
+
+            </p>
+
+        </div>
+
+    `;
+
+    report.style.display = "block";
+
+    const canvas = await html2canvas(report, {
+
+        scale: 2
+
+    });
+
+    report.style.display = "none";
+
+    const imgData = canvas.toDataURL("image/png");
+
+    const { jsPDF } = window.jspdf;
+
+    const pdf = new jsPDF("p", "mm", "a4");
+
+    const width = 190;
+
+    const height = canvas.height * width / canvas.width;
+
+    pdf.addImage(imgData, "PNG", 10, 10, width, height);
+
+    pdf.save(currentPlan.crop + "-Report.pdf");
 
 }

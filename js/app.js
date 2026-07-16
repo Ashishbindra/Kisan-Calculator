@@ -172,6 +172,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     showPage("homePage");
     loadDashboard();
+    loadTodayTasks();
+
+    document.getElementById("todayDate").textContent =
+        new Date().toLocaleDateString("en-IN", {
+
+            weekday: "long",
+
+            day: "numeric",
+
+            month: "long",
+
+            year: "numeric"
+
+        });
 });
 
 // =========================================
@@ -404,29 +418,27 @@ document.addEventListener("DOMContentLoaded", () => {
 function loadDashboard() {
 
     const farms = getFarms();
-
     const plans = getPlans();
 
-    let totalArea = 0;
-
-    let totalIncome = 0;
+    let area = 0;
+    let income = 0;
 
     plans.forEach(plan => {
 
-        totalArea += plan.area;
-
-        totalIncome += plan.income;
+        area += Number(plan.area || 0);
+        income += Number(plan.income || 0);
 
     });
 
     document.getElementById("totalFarms").textContent = farms.length;
-
     document.getElementById("totalPlans").textContent = plans.length;
-
-    document.getElementById("totalArea").textContent = totalArea.toFixed(2);
+    document.getElementById("totalArea").textContent = area.toFixed(2);
 
     document.getElementById("totalIncome").textContent =
-        "₹ " + totalIncome.toLocaleString("en-IN");
+        "₹ " + income.toLocaleString("en-IN", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
 
 }
 
@@ -549,11 +561,11 @@ if (compareCard) {
 
 }
 
-const compareBtnCard=document.querySelector(".open-compare");
+const compareBtnCard = document.querySelector(".open-compare");
 
-if(compareBtnCard){
+if (compareBtnCard) {
 
-    compareBtnCard.onclick=()=>{
+    compareBtnCard.onclick = () => {
 
         showPage("compareCropPage");
 
@@ -565,12 +577,74 @@ if(compareBtnCard){
 
 const advisorCard = document.querySelector(".open-advisor");
 
-if(advisorCard){
+if (advisorCard) {
 
-    advisorCard.onclick = ()=>{
+    advisorCard.onclick = () => {
 
         showPage("cropAdvisorPage");
 
     }
+
+}
+
+function loadTodayTasks(){
+
+    const container=document.getElementById("todayTasks");
+
+    const plans=getPlans();
+
+    if(plans.length===0){
+
+        container.innerHTML=`
+
+            <div class="empty-task">
+
+                No Crop Plans Found.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+    let html="";
+
+    plans.slice(0,3).forEach(plan=>{
+
+        html+=`
+
+        <div class="task-card">
+
+            <div class="task-icon">
+
+                🌾
+
+            </div>
+
+            <div>
+
+                <div class="task-title">
+
+                    ${plan.crop}
+
+                </div>
+
+                <div class="task-desc">
+
+                    Farm : ${plan.farmName}
+
+                </div>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+    container.innerHTML=html;
 
 }

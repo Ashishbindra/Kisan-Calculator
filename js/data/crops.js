@@ -55,6 +55,18 @@ const CROP_DATABASE = {
             urea: 90,
             dap: 50,
             potash: 20
+        }, workSchedule: {
+
+            firstIrrigation: 20,
+
+            fertilizer: 30,
+
+            secondIrrigation: 45,
+
+            pesticide: 60,
+
+            harvest: 120
+
         },
 
         irrigation: 6,
@@ -118,7 +130,19 @@ const CROP_DATABASE = {
             dap: 45,
             potash: 25
         },
+        workSchedule: {
 
+            firstIrrigation: 20,
+
+            fertilizer: 30,
+
+            secondIrrigation: 45,
+
+            pesticide: 60,
+
+            harvest: 120
+
+        },
         irrigation: 8,
 
         yield: 25,
@@ -177,6 +201,18 @@ const CROP_DATABASE = {
             urea: 110,
             dap: 50,
             potash: 20
+        }, workSchedule: {
+
+            firstIrrigation: 20,
+
+            fertilizer: 30,
+
+            secondIrrigation: 45,
+
+            pesticide: 60,
+
+            harvest: 120
+
         },
 
         irrigation: 5,
@@ -238,7 +274,19 @@ const CROP_DATABASE = {
             dap: 30,
             potash: 15
         },
+        workSchedule: {
 
+            firstIrrigation: 20,
+
+            fertilizer: 30,
+
+            secondIrrigation: 45,
+
+            pesticide: 60,
+
+            harvest: 120
+
+        },
         irrigation: 3,
 
         yield: 8,
@@ -298,7 +346,19 @@ const CROP_DATABASE = {
             dap: 40,
             potash: 10
         },
+        workSchedule: {
 
+            firstIrrigation: 20,
+
+            fertilizer: 30,
+
+            secondIrrigation: 45,
+
+            pesticide: 60,
+
+            harvest: 120
+
+        },
         irrigation: 2,
 
         yield: 10,
@@ -359,6 +419,18 @@ const CROP_DATABASE = {
             urea: 180,
             dap: 60,
             potash: 60
+        }, workSchedule: {
+
+            firstIrrigation: 20,
+
+            fertilizer: 30,
+
+            secondIrrigation: 45,
+
+            pesticide: 60,
+
+            harvest: 120
+
         },
 
         irrigation: 18,
@@ -420,7 +492,19 @@ const CROP_DATABASE = {
             dap: 60,
             potash: 80
         },
+        workSchedule: {
 
+            firstIrrigation: 20,
+
+            fertilizer: 30,
+
+            secondIrrigation: 45,
+
+            pesticide: 60,
+
+            harvest: 120
+
+        },
         irrigation: 8,
 
         yield: 100,
@@ -480,7 +564,19 @@ const CROP_DATABASE = {
             dap: 50,
             potash: 50
         },
+        workSchedule: {
 
+            firstIrrigation: 20,
+
+            fertilizer: 30,
+
+            secondIrrigation: 45,
+
+            pesticide: 60,
+
+            harvest: 120
+
+        },
         irrigation: 10,
 
         yield: 120,
@@ -540,7 +636,19 @@ const CROP_DATABASE = {
             dap: 60,
             potash: 60
         },
+        workSchedule: {
 
+            firstIrrigation: 20,
+
+            fertilizer: 30,
+
+            secondIrrigation: 45,
+
+            pesticide: 60,
+
+            harvest: 120
+
+        },
         irrigation: 12,
 
         yield: 250,
@@ -601,7 +709,19 @@ const CROP_DATABASE = {
             dap: 45,
             potash: 20
         },
+        workSchedule: {
 
+            firstIrrigation: 20,
+
+            fertilizer: 30,
+
+            secondIrrigation: 45,
+
+            pesticide: 60,
+
+            harvest: 120
+
+        },
         irrigation: 7,
 
         yield: 12,
@@ -663,7 +783,19 @@ const CROP_DATABASE = {
             dap: 40,
             potash: 15
         },
+        workSchedule: {
 
+            firstIrrigation: 20,
+
+            fertilizer: 30,
+
+            secondIrrigation: 45,
+
+            pesticide: 60,
+
+            harvest: 120
+
+        },
         irrigation: 3,
 
         yield: 12,
@@ -723,7 +855,19 @@ const CROP_DATABASE = {
             dap: 25,
             potash: 10
         },
+        workSchedule: {
 
+            firstIrrigation: 20,
+
+            fertilizer: 30,
+
+            secondIrrigation: 45,
+
+            pesticide: 60,
+
+            harvest: 120
+
+        },
         irrigation: 2,
 
         yield: 12,
@@ -783,7 +927,19 @@ const CROP_DATABASE = {
             dap: 25,
             potash: 10
         },
+        workSchedule: {
 
+            firstIrrigation: 20,
+
+            fertilizer: 30,
+
+            secondIrrigation: 45,
+
+            pesticide: 60,
+
+            harvest: 120
+
+        },
         irrigation: 2,
 
         yield: 14,
@@ -843,7 +999,19 @@ const CROP_DATABASE = {
             dap: 40,
             potash: 20
         },
+        workSchedule: {
 
+            firstIrrigation: 20,
+
+            fertilizer: 30,
+
+            secondIrrigation: 45,
+
+            pesticide: 60,
+
+            harvest: 120
+
+        },
         irrigation: 4,
 
         yield: 16,
@@ -903,7 +1071,19 @@ const CROP_DATABASE = {
             dap: 30,
             potash: 10
         },
+        workSchedule: {
 
+            firstIrrigation: 20,
+
+            fertilizer: 30,
+
+            secondIrrigation: 45,
+
+            pesticide: 60,
+
+            harvest: 120
+
+        },
         irrigation: 2,
 
         yield: 6,
@@ -962,7 +1142,19 @@ const CROP_DATABASE = {
             dap: 30,
             potash: 10
         },
+        workSchedule: {
 
+            firstIrrigation: 20,
+
+            fertilizer: 30,
+
+            secondIrrigation: 45,
+
+            pesticide: 60,
+
+            harvest: 120
+
+        },
         irrigation: 2,
 
         yield: 6,
@@ -1022,7 +1214,19 @@ const CROP_DATABASE = {
             dap: 60,
             potash: 50
         },
+        workSchedule: {
 
+            firstIrrigation: 20,
+
+            fertilizer: 30,
+
+            secondIrrigation: 45,
+
+            pesticide: 60,
+
+            harvest: 120
+
+        },
         irrigation: 10,
 
         yield: 80,
@@ -1082,7 +1286,19 @@ const CROP_DATABASE = {
             dap: 60,
             potash: 60
         },
+        workSchedule: {
 
+            firstIrrigation: 20,
+
+            fertilizer: 30,
+
+            secondIrrigation: 45,
+
+            pesticide: 60,
+
+            harvest: 120
+
+        },
         irrigation: 10,
 
         yield: 250,
@@ -1142,7 +1358,19 @@ const CROP_DATABASE = {
             dap: 60,
             potash: 60
         },
+        workSchedule: {
 
+            firstIrrigation: 20,
+
+            fertilizer: 30,
+
+            secondIrrigation: 45,
+
+            pesticide: 60,
+
+            harvest: 120
+
+        },
         irrigation: 8,
 
         yield: 300,
@@ -1202,7 +1430,19 @@ const CROP_DATABASE = {
             dap: 60,
             potash: 60
         },
+        workSchedule: {
 
+            firstIrrigation: 20,
+
+            fertilizer: 30,
+
+            secondIrrigation: 45,
+
+            pesticide: 60,
+
+            harvest: 120
+
+        },
         irrigation: 8,
 
         yield: 250,

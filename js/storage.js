@@ -47,3 +47,51 @@ function updateRecord(updatedRecord) {
     }
 
 }
+
+function saveLastArea(data) {
+
+    localStorage.setItem("lastArea", JSON.stringify(data));
+
+}
+
+function getLastArea() {
+
+    return JSON.parse(localStorage.getItem("lastArea"));
+
+}
+
+const FARM_KEY = "kisan_farms";
+
+function getFarms() {
+
+    return JSON.parse(
+
+        localStorage.getItem(FARM_KEY)
+
+    ) || [];
+
+}
+
+function saveFarms(farms) {
+
+    localStorage.setItem(
+
+        FARM_KEY,
+
+        JSON.stringify(farms)
+
+    );
+
+}
+
+function addFarm(farm) {
+
+    const farms = getFarms();
+
+    farm.id = Date.now();
+
+    farms.unshift(farm);
+
+    saveFarms(farms);
+
+}

@@ -2,35 +2,41 @@
 <html lang="hi">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Kisan Calculator</title>
+    <title>Kisan Toolkit</title>
 
     <meta name="theme-color" content="#2E7D32">
 
     <link rel="stylesheet" href="css/variables.css">
+
     <link rel="stylesheet" href="css/style.css">
+
     <link rel="stylesheet" href="css/responsive.css">
 
     <!-- Google Font -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
     <!-- Font Awesome -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 </head>
 
 <body>
 
     <div class="app">
 
-        <!-- ==========================
-            Header
-    =========================== -->
+        <!-- ================= Header ================= -->
 
         <header class="header">
 
@@ -44,17 +50,21 @@
 
                 <h1>Kisan Calculator</h1>
 
-                <p>Smart Farming Tools</p>
+                <p>
+
+                    Smart Farming Toolkit
+
+                </p>
 
             </div>
 
         </header>
 
-        <!-- ==========================
-            Main
-    =========================== -->
+
+        <!-- ================= Main ================= -->
 
         <main>
+
 
             <!-- ================= HOME ================= -->
 
@@ -63,25 +73,35 @@
                 <div class="hero">
 
                     <h2>
+
                         किसान के लिए स्मार्ट कैलकुलेटर
+
                     </h2>
 
                     <p>
 
                         खेती से जुड़े सभी जरूरी कैलकुलेटर
-                        एक ही ऐप में।
+                        एक ही App में।
 
                     </p>
 
                 </div>
 
+
                 <div class="tool-grid">
+
+
+                    <!-- Area -->
 
                     <div class="tool-card open-area">
 
                         <i class="fa-solid fa-ruler-combined"></i>
 
-                        <h4>Area Calculator</h4>
+                        <h4>
+
+                            Area Calculator
+
+                        </h4>
 
                         <p>
 
@@ -91,23 +111,100 @@
 
                     </div>
 
-                    <div class="tool-card disabled">
+
+                    <!-- Seed -->
+
+                    <div class="tool-card open-seed">
 
                         <i class="fa-solid fa-seedling"></i>
 
-                        <h4>Seed Calculator</h4>
+                        <h4>
 
-                        <span>Coming Soon</span>
+                            Seed Calculator
+
+                        </h4>
+
+                        <p>
+
+                            बीज की मात्रा निकालें
+
+                        </p>
 
                     </div>
 
-                    <div class="tool-card disabled">
 
-                        <i class="fa-solid fa-droplet"></i>
+                    <!-- Fertilizer -->
 
-                        <h4>Irrigation</h4>
+                    <div class="tool-card open-fertilizer">
 
-                        <span>Coming Soon</span>
+                        <i class="fa-solid fa-flask"></i>
+
+                        <h4>
+
+                            Fertilizer
+
+                        </h4>
+
+                        <p>
+
+                            खाद की मात्रा निकालें
+
+                        </p>
+
+                    </div>
+
+                    <!-- Profit -->
+
+                    <div class="tool-card open-profit">
+
+                        <i class="fa-solid fa-indian-rupee-sign"></i>
+
+                        <h4>
+
+                            Profit Calculator
+
+                        </h4>
+
+                        <p>
+
+                            लाभ निकालें
+
+                        </p>
+
+                    </div>
+
+                    <div class="tool-card open-planner">
+
+                        <i class="fa-solid fa-leaf"></i>
+
+                        <h4>
+
+                            Crop Planner
+
+                        </h4>
+
+                        <p>
+
+                            पूरी खेती की योजना
+
+                        </p>
+
+                    </div>
+                    <div class="tool-card open-farms">
+
+                        <i class="fa-solid fa-tractor"></i>
+
+                        <h4>
+
+                            My Farms
+
+                        </h4>
+
+                        <p>
+
+                            मेरे खेत
+
+                        </p>
 
                     </div>
 
@@ -115,23 +212,31 @@
 
             </section>
 
-
-
             <!-- ================= AREA ================= -->
 
             <section id="areaPage" class="page">
 
                 <div class="page-header">
 
-                    <h2>🌾 Area Calculator</h2>
+                    <h2>
+
+                        🌾 Area Calculator
+
+                    </h2>
 
                     <p>
+
                         खेत का क्षेत्रफल निकालें
+
                     </p>
 
                 </div>
 
+
                 <div class="card">
+
+
+                    <!-- Field Name -->
 
                     <div class="form-group">
 
@@ -141,9 +246,12 @@
 
                         </label>
 
-                        <input type="text" class="input" id="fieldName" placeholder="जैसे - पश्चिम वाला खेत">
+                        <input id="fieldName" class="input" type="text" placeholder="जैसे - पश्चिम वाला खेत">
 
                     </div>
+
+
+                    <!-- Shape -->
 
                     <div class="form-group">
 
@@ -153,27 +261,26 @@
 
                         </label>
 
-                        <select id="fieldShape">
+                        <select id="fieldShape" class="input">
 
                             <option value="rectangle">
-                                आयत (Rectangle)
+
+                                आयत
+
                             </option>
 
                             <option value="square">
-                                वर्ग (Square)
-                            </option>
 
-                            <option disabled>
-                                त्रिकोण (Coming Soon)
-                            </option>
+                                वर्ग
 
-                            <option disabled>
-                                गोल (Coming Soon)
                             </option>
 
                         </select>
 
                     </div>
+
+
+                    <!-- Length Width -->
 
                     <div class="row">
 
@@ -185,7 +292,7 @@
 
                             </label>
 
-                            <input type="number" class="input" id="length" placeholder="0">
+                            <input id="length" class="input" type="number">
 
                         </div>
 
@@ -197,38 +304,77 @@
 
                             </label>
 
-                            <input type="number" class="input" id="width" placeholder="0">
+                            <input id="width" class="input" type="number">
 
                         </div>
 
                     </div>
 
+
+                    <!-- State -->
+
                     <div class="form-group">
-                        <div class="form-group">
 
-                            <label>राज्य</label>
+                        <label class="label">
 
-                            <select id="state">
+                            राज्य
 
-                                <option value="up">उत्तर प्रदेश</option>
-                                <option value="bihar">बिहार</option>
-                                <option value="rajasthan">राजस्थान</option>
-                                <option value="mp">मध्य प्रदेश</option>
-                                <option value="haryana">हरियाणा</option>
-                                <option value="punjab">पंजाब</option>
-                                <option value="maharashtra">महाराष्ट्र</option>
-                                <option value="gujarat">गुजरात</option>
+                        </label>
 
-                            </select>
+                        <select id="state" class="input">
 
-                        </div>
+                            <option value="up">
+
+                                उत्तर प्रदेश
+
+                            </option>
+
+                            <option value="bihar">
+
+                                बिहार
+
+                            </option>
+
+                            <option value="rajasthan">
+
+                                राजस्थान
+
+                            </option>
+
+                            <option value="mp">
+
+                                मध्य प्रदेश
+
+                            </option>
+
+                            <option value="punjab">
+
+                                पंजाब
+
+                            </option>
+
+                            <option value="haryana">
+
+                                हरियाणा
+
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Unit -->
+
+                    <div class="form-group">
+
                         <label class="label">
 
                             माप की इकाई
 
                         </label>
 
-                        <select id="unit">
+                        <select id="unit" class="input">
 
                             <option value="feet">
 
@@ -246,6 +392,9 @@
 
                     </div>
 
+
+                    <!-- Button -->
+
                     <button id="calculateBtn" class="btn">
 
                         Calculate Area
@@ -255,6 +404,7 @@
                 </div>
 
 
+                <!-- Result -->
 
                 <div class="card result-card" id="resultCard">
 
@@ -266,85 +416,45 @@
 
                     <div class="result-item">
 
-                        <span>
+                        <span>Square Feet</span>
 
-                            Square Feet
-
-                        </span>
-
-                        <strong id="sqFeet">
-
-                            -
-
-                        </strong>
+                        <strong id="sqFeet">-</strong>
 
                     </div>
 
                     <div class="result-item">
 
-                        <span>
+                        <span>Square Meter</span>
 
-                            Square Meter
-
-                        </span>
-
-                        <strong id="sqMeter">
-
-                            -
-
-                        </strong>
+                        <strong id="sqMeter">-</strong>
 
                     </div>
 
                     <div class="result-item">
 
-                        <span>
+                        <span>Acre</span>
 
-                            Acre
-
-                        </span>
-
-                        <strong id="acre">
-
-                            -
-
-                        </strong>
+                        <strong id="acre">-</strong>
 
                     </div>
 
                     <div class="result-item">
 
-                        <span>
+                        <span>Hectare</span>
 
-                            Hectare
-
-                        </span>
-
-                        <strong id="hectare">
-
-                            -
-
-                        </strong>
+                        <strong id="hectare">-</strong>
 
                     </div>
 
                     <div class="result-item">
 
-                        <span>
+                        <span>Bigha</span>
 
-                            Bigha
-
-                        </span>
-
-                        <strong id="bigha">
-
-                            -
-
-                        </strong>
+                        <strong id="bigha">-</strong>
 
                     </div>
 
-                    <button class="btn" id="saveRecord">
+                    <button id="saveRecord" class="btn">
 
                         Save Record
 
@@ -352,7 +462,231 @@
 
                 </div>
 
+            </section> <!-- ================= SEED ================= -->
+
+            <section id="seedPage" class="page">
+
+                <div class="page-header">
+
+                    <h2>🌱 Seed Calculator</h2>
+
+                    <p>फसल के अनुसार बीज की मात्रा निकालें</p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Current Area</h3>
+
+                    <p id="currentArea">
+
+                        पहले Area Calculator से क्षेत्रफल निकालें।
+
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <div class="form-group">
+
+                        <label class="label">
+
+                            Crop
+
+                        </label>
+
+                        <select id="crop" class="input">
+
+                            <option value="">Select Crop</option>
+
+                            <option value="wheat">🌾 Wheat (गेहूं)</option>
+
+                            <option value="paddy">🌾 Paddy (धान)</option>
+
+                            <option value="maize">🌽 Maize (मक्का)</option>
+
+                            <option value="mustard">🌼 Mustard (सरसों)</option>
+
+                            <option value="gram">🟤 Gram (चना)</option>
+
+                        </select>
+
+                    </div>
+
+                    <button id="calculateSeed" class="btn">
+
+                        Calculate Seed
+
+                    </button>
+
+                </div>
+
+                <div id="seedResult" class="card result-card">
+
+                    <h3>
+
+                        Crop Recommendation
+
+                    </h3>
+
+                    <div id="cropOutput"></div>
+
+                </div>
+
             </section>
+
+
+
+            <!-- ================= FERTILIZER ================= -->
+
+            <section id="fertilizerPage" class="page">
+
+                <div class="page-header">
+
+                    <h2>🧪 Fertilizer Calculator</h2>
+
+                    <p>
+
+                        खाद की मात्रा निकालें
+
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Current Area</h3>
+
+                    <p id="fertilizerArea">
+
+                        पहले Area Calculator से क्षेत्रफल निकालें।
+
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <div class="form-group">
+
+                        <label class="label">
+
+                            Crop
+
+                        </label>
+
+                        <select id="fertilizerCrop" class="input">
+
+                            <option value="">Select Crop</option>
+
+                            <option value="wheat">🌾 Wheat</option>
+
+                            <option value="paddy">🌾 Paddy</option>
+
+                            <option value="maize">🌽 Maize</option>
+
+                            <option value="mustard">🌼 Mustard</option>
+
+                            <option value="gram">🟤 Gram</option>
+
+                        </select>
+
+                    </div>
+
+                    <button id="calculateFertilizer" class="btn">
+
+                        Calculate Fertilizer
+
+                    </button>
+
+                </div>
+
+                <div id="fertilizerResult" class="card result-card">
+
+                    <h3>
+
+                        Fertilizer Recommendation
+
+                    </h3>
+
+                    <div id="fertilizerOutput"></div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= PROFIT ================= -->
+
+            <section id="profitPage" class="page">
+
+                <div class="page-header">
+
+                    <h2>💰 Profit Calculator</h2>
+
+                    <p>
+
+                        अनुमानित लाभ निकालें
+
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <div class="form-group">
+
+                        <label class="label">
+
+                            Total Cost
+
+                        </label>
+
+                        <input id="totalCost" class="input" type="number">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label class="label">
+
+                            Total Income
+
+                        </label>
+
+                        <input id="totalIncome" class="input" type="number">
+
+                    </div>
+
+                    <button id="calculateProfit" class="btn">
+
+                        Calculate Profit
+
+                    </button>
+
+                </div>
+
+                <div id="profitResult" class="card result-card">
+
+                    <h3>
+
+                        Net Profit
+
+                    </h3>
+
+                    <h2 id="profitOutput">
+
+                        ₹0
+
+                    </h2>
+
+                </div>
+
+            </section>
+
+
 
             <!-- ================= RECORD ================= -->
 
@@ -360,43 +694,236 @@
 
                 <div class="page-header">
 
-                    <h2>📂 Saved Records</h2>
+                    <h2>
 
-                    <p>आपके सेव किए गए खेत</p>
+                        📂 Saved Records
+
+                    </h2>
 
                 </div>
 
                 <div id="recordsContainer">
 
-                    <p style="text-align:center;color:#777">
+                </div>
 
-                        अभी कोई रिकॉर्ड सेव नहीं है।
+            </section>
+
+
+
+            <!-- ================= SETTINGS ================= -->
+
+            <section id="settingPage" class="page">
+
+                <div class="page-header">
+
+                    <h2>
+
+                        ⚙ Settings
+
+                    </h2>
+
+                </div>
+
+                <div class="card">
+
+                    <p>
+
+                        Dark Mode, Backup, Restore आदि यहाँ आएँगे।
 
                     </p>
 
                 </div>
 
             </section>
+            <section id="plannerPage" class="page">
 
-            <!-- ================= SETTINGS ================= -->
+                <div class="page-header">
 
-            <section id="settingPage" class="page">
+                    <h2>
 
-                <h2>
+                        🌾 Crop Planner
 
-                    Settings
+                    </h2>
 
-                </h2>
+                    <p>
+
+                        एक जगह पूरी जानकारी
+
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+
+                        Current Area
+
+                    </h3>
+
+                    <p id="plannerArea">
+
+                        Area Calculator से Area चुनें
+
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="form-group">
+
+                        <label class="label">
+
+                            Crop
+
+                        </label>
+
+                        <select id="plannerCrop" class="input">
+
+                            <option value="">
+
+                                Select Crop
+
+                            </option>
+
+                            <option value="wheat">
+
+                                🌾 गेहूं
+
+                            </option>
+
+                            <option value="paddy">
+
+                                🌾 धान
+
+                            </option>
+
+                            <option value="maize">
+
+                                🌽 मक्का
+
+                            </option>
+
+                            <option value="mustard">
+
+                                🌼 सरसों
+
+                            </option>
+
+                            <option value="gram">
+
+                                🟤 चना
+
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <button class="btn" id="generatePlan">
+
+                        Generate Plan
+
+                    </button>
+
+                </div>
+
+
+                <div class="card result-card" id="plannerResult">
+
+                    <div id="plannerOutput">
+
+                    </div>
+
+                </div>
 
             </section>
 
+            <section id="farmPage" class="page">
+
+                <div class="page-header">
+
+                    <h2>
+
+                        🌾 My Farms
+
+                    </h2>
+
+                    <p>
+
+                        अपने सभी खेत यहां रखें
+
+                    </p>
+
+                </div>
+
+
+                <button class="btn" id="addFarmBtn">
+
+                    + Add New Farm
+
+                </button>
+
+
+                <div id="farmList">
+
+                </div>
+
+            </section>
         </main>
 
+        <div id="farmDialog" class="dialog">
 
+            <div class="dialog-content">
 
-        <!-- ==========================
-        Bottom Navigation
-    =========================== -->
+                <div class="dialog-header">
+
+                    <h2>Add Farm</h2>
+
+                    <button id="closeFarmDialog" class="close-btn">
+
+                        &times;
+
+                    </button>
+
+                </div>
+
+                <input id="farmName" class="input" placeholder="Field Name">
+
+                <input id="village" class="input" placeholder="Village">
+
+                <input id="owner" class="input" placeholder="Owner Name">
+
+                <select id="farmState" class="input">
+
+                    <option value="up">
+
+                        Uttar Pradesh
+
+                    </option>
+
+                    <option value="bihar">
+
+                        Bihar
+
+                    </option>
+
+                </select>
+
+                <button class="btn" id="saveFarm">
+
+                    Save Farm
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- ================= Bottom Navigation ================= -->
 
         <nav class="bottom-nav">
 
@@ -436,8 +963,24 @@
 
     </div>
 
+
+
     <script src="js/storage.js"></script>
+
     <script src="js/calculator.js"></script>
+
+    <script src="js/data/crops.js"></script>
+
+    <script src="js/modules/farm.js"></script>
+
+    <script src="js/modules/seed.js"></script>
+
+    <script src="js/modules/fertilizer.js"></script>
+
+    <script src="js/modules/planner.js"></script>
+
+    <script src="js/modules/profit.js"></script>
+
     <script src="js/app.js"></script>
 
 </body>

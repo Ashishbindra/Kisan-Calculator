@@ -146,7 +146,7 @@ function calculateArea() {
         createdAt: new Date().toLocaleString()
 
     };
-
+    saveLastArea(currentResult);
     // ===========================
     // Show Result
     // ===========================

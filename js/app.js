@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // ==========================
 
     showPage("homePage");
-
+    loadDashboard();
 });
 
 // =========================================
@@ -400,3 +400,123 @@ document.addEventListener("DOMContentLoaded", () => {
     renderRecords();
 
 });
+
+function loadDashboard() {
+
+    const farms = getFarms();
+
+    const plans = getPlans();
+
+    let totalArea = 0;
+
+    let totalIncome = 0;
+
+    plans.forEach(plan => {
+
+        totalArea += plan.area;
+
+        totalIncome += plan.income;
+
+    });
+
+    document.getElementById("totalFarms").textContent = farms.length;
+
+    document.getElementById("totalPlans").textContent = plans.length;
+
+    document.getElementById("totalArea").textContent = totalArea.toFixed(2);
+
+    document.getElementById("totalIncome").textContent =
+        "₹ " + totalIncome.toLocaleString("en-IN");
+
+}
+
+document.getElementById("backupData").onclick = () => {
+
+    const data = exportData();
+
+    const blob = new Blob(
+        [JSON.stringify(data, null, 2)],
+        { type: "application/json" }
+    );
+
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+
+    a.href = url;
+
+    a.download = "kisan-backup.json";
+
+    a.click();
+
+};
+
+document.getElementById("restoreData").onclick = () => {
+
+    document.getElementById("restoreFile").click();
+
+};
+
+document.getElementById("restoreFile").onchange = e => {
+
+    const file = e.target.files[0];
+
+    if (!file) return;
+
+    const reader = new FileReader();
+
+    reader.onload = () => {
+
+        const data = JSON.parse(reader.result);
+
+        importData(data);
+
+        alert("✅ Data Restore हो गया।");
+
+        location.reload();
+
+    };
+
+    reader.readAsText(file);
+
+};
+
+document.getElementById("clearData").onclick = () => {
+
+    if (!confirm("क्या आप पूरा Data Delete करना चाहते हैं?")) {
+
+        return;
+
+    }
+
+    localStorage.clear();
+
+    location.reload();
+
+};
+
+document.getElementById("plannerSeason").onchange = function () {
+
+    const season = this.value;
+
+    const cropSelect = document.getElementById("plannerCrop");
+
+    cropSelect.innerHTML = '<option value="">Select Crop</option>';
+
+    Object.keys(CROP_DATABASE).forEach(key => {
+
+        const crop = CROP_DATABASE[key];
+
+        if (crop.season === season) {
+
+            cropSelect.innerHTML += `
+                <option value="${key}">
+                    ${crop.name}
+                </option>
+            `;
+
+        }
+
+    });
+
+};

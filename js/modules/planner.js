@@ -186,28 +186,60 @@ function generatePlan() {
 
             <hr>
 
-            <p>📏 Area : <b>${acre.toFixed(2)} Acre</b></p>
+            <h3>🌱 Crop Information</h3>
 
-            <p>🌱 Seed : <b>${seed.toFixed(2)} KG</b></p>
+            <p>🌦️ <b>Season:</b> ${crop.season}</p>
 
-            <p>🧪 Urea : <b>${urea.toFixed(2)} KG</b></p>
+            <p>📅 <b>Sowing:</b> ${crop.sowing}</p>
 
-            <p>🧪 DAP : <b>${dap.toFixed(2)} KG</b></p>
+            <p>🌾 <b>Harvest:</b> ${crop.harvest}</p>
 
-            <p>🧪 Potash : <b>${potash.toFixed(2)} KG</b></p>
+            <p>⏳ <b>Duration:</b> ${crop.duration}</p>
 
-            <p>💧 Irrigation : <b>${irrigation} Times</b></p>
+            <p>🌡️ <b>Temperature:</b> ${crop.temperature}</p>
 
-            <p>🌾 Estimated Yield : <b>${yieldQty.toFixed(2)} Quintal</b></p>
+            <p>🌍 <b>Soil:</b> ${crop.soil}</p>
 
-            <p>💰 Estimated Income : <b>₹ ${income.toLocaleString("en-IN")}</b></p>
+            <hr>
 
-        </div>
+            <h3>📊 Farm Planning</h3>
 
-    `;
+            <p>📏 <b>Area:</b> ${acre.toFixed(2)} Acre</p>
+
+            <p>🌱 <b>Seed:</b> ${seed.toFixed(2)} KG</p>
+
+            <p>🧪 <b>Urea:</b> ${urea.toFixed(2)} KG</p>
+
+            <p>🧪 <b>DAP:</b> ${dap.toFixed(2)} KG</p>
+
+            <p>🧪 <b>Potash:</b> ${potash.toFixed(2)} KG</p>
+
+            <p>💧 <b>Irrigation:</b> ${irrigation} Times</p>
+
+            <p>🌾 <b>Estimated Yield:</b> ${yieldQty.toFixed(2)} Quintal</p>
+
+            <p style="font-size:20px;color:#2e7d32;">
+
+                💰 <b>Estimated Income:</b>
+
+                ₹ ${income.toLocaleString("en-IN")}
+
+            </p>
+
+        </div>`;
 
     document.getElementById("plannerResult").style.display = "block";
     document.getElementById("savePlan").style.display = "block";
+
+    const viewBtn = document.getElementById("viewCropDetails");
+
+    viewBtn.style.display = "block";
+
+    viewBtn.onclick = () => {
+
+        showCropDetails(cropKey);
+
+    };
 }
 
 const savePlanBtn = document.getElementById("savePlan");
@@ -234,17 +266,17 @@ function saveCurrentPlan() {
 
 }
 
-function renderPlanHistory(){
+function renderPlanHistory() {
 
-    const container=document.getElementById("planHistory");
+    const container = document.getElementById("planHistory");
 
-    if(!container) return;
+    if (!container) return;
 
-    const plans=getPlans();
+    const plans = getPlans();
 
-    if(plans.length===0){
+    if (plans.length === 0) {
 
-        container.innerHTML=`
+        container.innerHTML = `
 
             <div class="empty-record">
 
@@ -258,11 +290,11 @@ function renderPlanHistory(){
 
     }
 
-    let html="";
+    let html = "";
 
-    plans.forEach(plan=>{
+    plans.forEach(plan => {
 
-        html+=`
+        html += `
 
         <div class="record-card">
 
@@ -310,6 +342,134 @@ function renderPlanHistory(){
 
     });
 
-    container.innerHTML=html;
+    container.innerHTML = html;
 
 }
+
+function showCropDetails(cropKey) {
+
+    const crop = CROP_DATABASE[cropKey];
+
+    if (!crop) return;
+
+    showPage("cropDetailsPage");
+
+    document.getElementById("cropDetailsContent").innerHTML = `
+
+        <div class="card">
+
+            <h2>${crop.name}</h2>
+
+            <div class="info-grid">
+
+                <div class="info-box">
+                    <span>🌦️ Season</span>
+                    <strong>${crop.season}</strong>
+                </div>
+
+                <div class="info-box">
+                    <span>📅 Sowing</span>
+                    <strong>${crop.sowing}</strong>
+                </div>
+
+                <div class="info-box">
+                    <span>🌾 Harvest</span>
+                    <strong>${crop.harvest}</strong>
+                </div>
+
+                <div class="info-box">
+                    <span>⏳ Duration</span>
+                    <strong>${crop.duration}</strong>
+                </div>
+
+                <div class="info-box">
+                    <span>🌡️ Temperature</span>
+                    <strong>${crop.temperature}</strong>
+                </div>
+
+                <div class="info-box">
+                    <span>🌍 Soil</span>
+                    <strong>${crop.soil}</strong>
+                </div>
+
+                <div class="info-box">
+                    <span>🌧️ Rainfall</span>
+                    <strong>${crop.rainfall}</strong>
+                </div>
+
+                <div class="info-box">
+                    <span>🧪 Soil pH</span>
+                    <strong>${crop.ph}</strong>
+                </div>
+
+            </div>
+
+            <hr>
+
+            <h3>🌱 Farming Information</h3>
+
+            <p><b>🌱 Seed:</b> ${crop.seed} KG / Acre</p>
+
+            <p><b>🧪 Urea:</b> ${crop.fertilizer.urea} KG</p>
+
+            <p><b>🧪 DAP:</b> ${crop.fertilizer.dap} KG</p>
+
+            <p><b>🧪 Potash:</b> ${crop.fertilizer.potash} KG</p>
+
+            <p><b>💧 Irrigation:</b> ${crop.irrigation} Times</p>
+
+            <p><b>🌾 Average Yield:</b> ${crop.yield} Quintal / Acre</p>
+
+            <p><b>💰 Market Price:</b> ₹ ${crop.price} / Quintal</p>
+            <hr>
+
+            <h3>🌱 Recommended Varieties (अनुशंसित किस्में)</h3>
+
+            <div class="list-card">
+
+                ${crop.varieties.map(item => `
+                    <div class="list-item">🌾 ${item}</div>
+                `).join("")}
+
+            </div>
+
+            <hr>
+
+            <h3>🦠 Major Diseases (मुख्य रोग)</h3>
+
+            <div class="list-card">
+
+                ${crop.diseases.map(item => `
+                    <div class="list-item">🦠 ${item}</div>
+                `).join("")}
+
+            </div>
+
+            <hr>
+
+            <h3>🐛 Major Pests (मुख्य कीट)</h3>
+
+            <div class="list-card">
+
+                ${crop.pests.map(item => `
+                    <div class="list-item">🐛 ${item}</div>
+                `).join("")}
+
+            </div>
+
+            <hr>
+
+            <h3>💊 Treatment (उपचार)</h3>
+
+            <div class="list-card">
+
+                ${crop.treatment.map(item => `
+                    <div class="list-item">💊 ${item}</div>
+                `).join("")}
+
+            </div>
+        </div>
+
+        `;
+}
+

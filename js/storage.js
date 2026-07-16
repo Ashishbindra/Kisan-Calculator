@@ -137,3 +137,27 @@ function addPlan(plan) {
     savePlans(plans);
 
 }
+
+function exportData() {
+
+    return {
+
+        farms: getFarms(),
+
+        plans: getPlans(),
+
+        records: getRecords()
+
+    };
+
+}
+
+function importData(data) {
+
+    localStorage.setItem("kisan_farms", JSON.stringify(data.farms || []));
+
+    localStorage.setItem("kisan_crop_plans", JSON.stringify(data.plans || []));
+
+    localStorage.setItem("area_records", JSON.stringify(data.records || []));
+
+}

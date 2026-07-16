@@ -64,7 +64,35 @@
         <!-- ================= Main ================= -->
 
         <main>
+            <div class="card dashboard-card">
 
+                <h2>📊 Dashboard</h2>
+
+                <div class="dashboard-grid">
+
+                    <div class="dash-box">
+                        <h3 id="totalFarms">0</h3>
+                        <p>🏡 Farms</p>
+                    </div>
+
+                    <div class="dash-box">
+                        <h3 id="totalPlans">0</h3>
+                        <p>🌾 Plans</p>
+                    </div>
+
+                    <div class="dash-box">
+                        <h3 id="totalArea">0</h3>
+                        <p>📏 Acre</p>
+                    </div>
+
+                    <div class="dash-box">
+                        <h3 id="totalIncome">₹0</h3>
+                        <p>💰 Income</p>
+                    </div>
+
+                </div>
+
+            </div>
 
             <!-- ================= HOME ================= -->
 
@@ -468,7 +496,7 @@
                         <button id="saveRecord" class="btn">
                             Save Record
                         </button>
-                    
+
                     </div>
 
                 </div>
@@ -777,7 +805,27 @@
                 </div>
 
                 <div class="card">
+                    <div class="form-group">
 
+                        <label class="label">
+                            Season
+                        </label>
+
+                        <select id="plannerSeason" class="input">
+
+                            <option value="">Select Season</option>
+
+                            <option value="Kharif">🌧️ Kharif (खरीफ)</option>
+
+                            <option value="Rabi">❄️ Rabi (रबी)</option>
+
+                            <option value="Zaid">☀️ Zaid (ज़ायद)</option>
+
+                            <option value="Annual">🌴 Annual (वार्षिक)</option>
+
+                        </select>
+
+                    </div>
                     <div class="form-group">
 
                         <label class="label">
@@ -815,11 +863,19 @@
                 <div id="plannerResult" class="card result-card">
 
                     <div id="plannerOutput"></div>
-                    <button id="savePlan" class="btn" style="margin-top:20px;display:none;">
+
+                    <button id="viewCropDetails" class="btn" style="display:none; margin-top:15px;">
+
+                        📖 View Full Crop Details
+
+                    </button>
+
+                    <button id="savePlan" class="btn" style="display:none; margin-top:15px;">
 
                         💾 Save Crop Plan
 
                     </button>
+
                 </div>
 
             </section>
@@ -854,7 +910,47 @@
 
                 </div>
 
+                <section id="settingsPage" class="page">
+
+                    <div class="page-header">
+
+                        <h2>⚙️ Settings</h2>
+
+                    </div>
+
+                    <div class="card">
+
+                        <button id="backupData" class="btn">
+                            💾 Backup Data
+                        </button>
+
+                        <button id="restoreData" class="btn">
+                            📂 Restore Data
+                        </button>
+
+                        <button id="clearData" class="btn delete-btn">
+                            🗑 Clear All Data
+                        </button>
+
+                    </div>
+
+                    <input type="file" id="restoreFile" accept=".json" style="display:none;">
+
+                </section>
             </section>
+
+            <section id="cropDetailsPage" class="page">
+
+                <div class="page-header">
+
+                    <h2>🌾 Crop Details</h2>
+
+                </div>
+
+                <div id="cropDetailsContent"></div>
+
+            </section>
+            
         </main>
 
         <div id="farmDialog" class="dialog">

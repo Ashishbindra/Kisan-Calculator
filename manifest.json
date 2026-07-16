@@ -1,6 +1,6 @@
 {
   "name": "Kisan Calculator",
-  "short_name": "KisanCalc",
+  "short_name": "Kisan Toolkit",
   "description": "Smart Calculator Toolkit for Farmers",
   "start_url": "./index.html",
   "scope": "./",

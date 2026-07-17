@@ -71,7 +71,7 @@
 
         <main>
             <div class="card dashboard-card">
-
+                <div id="notificationStatus"></div>
                 <h2>👋 Welcome Farmer</h2>
 
                 <p id="todayDate" class="dashboard-date"></p>
@@ -928,19 +928,50 @@
 
                         </div>
 
-                        <input type="checkbox" id="darkMode">
+                        <label class="switch">
 
+                            <input type="checkbox" id="darkMode">
+
+                            <span class="slider"></span>
+
+                        </label>
                     </div>
 
                     <div class="settings-item">
 
-                        <div>
+                        <div class="settings-left">
 
-                            <h3>🔔 Notifications</h3>
+                            <div class="settings-icon">
+
+                                🔔
+
+                            </div>
+
+                            <div>
+
+                                <div class="settings-name">
+
+                                    Notifications
+
+                                </div>
+
+                                <div class="settings-sub">
+
+                                    Enable reminders
+
+                                </div>
+
+                            </div>
 
                         </div>
 
-                        <input type="checkbox" id="notification">
+                        <label class="switch">
+
+                            <input type="checkbox" id="notification">
+
+                            <span class="slider"></span>
+
+                        </label>
 
                     </div>
 
@@ -999,7 +1030,71 @@
                     </div>
 
                 </div>
+                <div class="card">
 
+                    <h3>ℹ️ About & Support</h3>
+
+                    <div class="settings-item" id="shareApp">
+
+                        <div class="settings-left">
+
+                            <div class="settings-icon">📤</div>
+
+                            <div>
+
+                                <div class="settings-name">Share App</div>
+
+                                <div class="settings-sub">Share Kisan Calculator</div>
+
+                            </div>
+
+                        </div>
+
+                        <span>›</span>
+
+                    </div>
+
+                    <div class="settings-item" id="contactDeveloper">
+
+                        <div class="settings-left">
+
+                            <div class="settings-icon">📧</div>
+
+                            <div>
+
+                                <div class="settings-name">Contact Developer</div>
+
+                                <div class="settings-sub">Send Feedback</div>
+
+                            </div>
+
+                        </div>
+
+                        <span>›</span>
+
+                    </div>
+
+                    <div class="settings-item" id="aboutApp">
+
+                        <div class="settings-left">
+
+                            <div class="settings-icon">ℹ️</div>
+
+                            <div>
+
+                                <div class="settings-name">About App</div>
+
+                                <div class="settings-sub">Version 1.0.0</div>
+
+                            </div>
+
+                        </div>
+
+                        <span>›</span>
+
+                    </div>
+
+                </div>
             </section>
             <section id="plannerPage" class="page">
 
@@ -1094,7 +1189,6 @@
                     </button>
 
                 </div>
-
             </section>
 
             <section id="farmPage" class="page">
@@ -1532,7 +1626,6 @@
                 <span>Settings</span>
 
             </button>
-
         </nav>
 
     </div>

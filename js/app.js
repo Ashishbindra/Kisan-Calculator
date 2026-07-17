@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // ==========================
     // Pages
     // ==========================
-
     const pages = document.querySelectorAll(".page");
 
     const navButtons = document.querySelectorAll(".nav-btn");
@@ -169,9 +168,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // ==========================
     // Default Page
     // ==========================
-
+    applySettings();
     showPage("homePage");
     loadDashboard();
+    updateNotificationStatus();
     loadTodayTasks();
 
     document.getElementById("todayDate").textContent =
@@ -186,6 +186,67 @@ document.addEventListener("DOMContentLoaded", () => {
             year: "numeric"
 
         });
+
+
+    const shareApp = document.getElementById("shareApp");
+
+    if (shareApp) {
+
+        shareApp.onclick = () => {
+
+            const text =
+                `🌾 Kisan Calculator
+
+                Smart Farming Toolkit
+
+                https://ashishbindra.github.io/Kisan-Calculator/`;
+
+            if (navigator.share) {
+
+                navigator.share({
+
+                    title: "Kisan Calculator",
+
+                    text
+
+                });
+
+            } else {
+
+                navigator.clipboard.writeText(text);
+
+                alert("App link copied.");
+
+            }
+
+        };
+        const aboutApp = document.getElementById("aboutApp");
+
+        if (aboutApp) {
+
+            aboutApp.onclick = () => {
+
+                alert("Kisan Calculator\nVersion 1.0.0");
+
+            };
+
+        }
+    }
+    const contactDeveloper = document.getElementById("contactDeveloper");
+
+    if (contactDeveloper) {
+
+        contactDeveloper.onclick = () => {
+
+            window.open(
+                "https://mail.google.com/mail/?view=cm&fs=1&to=ashishbindra648@gmail.com&su=Kisan%20Calculator%20Feedback",
+                "_blank"
+            );
+
+        };
+
+    }
+
 });
 
 // =========================================
@@ -670,24 +731,28 @@ function loadSettings() {
     document.getElementById("pdfQuality").value = s.pdf;
 
     document.getElementById("notification").checked = s.notification;
-
 }
 
 function updateSettings() {
 
-    saveSettings({
+    const settings = getSettings();
 
-        dark: document.getElementById("darkMode").checked,
+    settings.dark =
+        document.getElementById("darkMode").checked;
 
-        unit: document.getElementById("defaultUnit").value,
+    settings.notification =
+        document.getElementById("notification").checked;
 
-        currency: document.getElementById("currency").value,
+    settings.unit =
+        document.getElementById("defaultUnit").value;
 
-        pdf: document.getElementById("pdfQuality").value,
+    settings.currency =
+        document.getElementById("currency").value;
 
-        notification: document.getElementById("notification").checked
+    settings.pdf =
+        document.getElementById("pdfQuality").value;
 
-    });
+    saveSettings(settings);
 
 }
 
@@ -697,3 +762,116 @@ document.querySelectorAll("#settingsPage input,#settingsPage select")
         el.onchange = updateSettings;
 
     });
+
+function applySettings() {
+
+    const settings = getSettings();
+
+    document.body.classList.toggle(
+        "dark-mode",
+        settings.dark
+    );
+
+}
+
+document.getElementById("darkMode").onchange = function () {
+
+    const settings = getSettings();
+
+    settings.dark = this.checked;
+
+    saveSettings(settings);
+
+    applySettings();
+
+};
+
+function formatArea(area) {
+
+    const settings = getSettings();
+
+    switch (settings.unit) {
+
+        case "Hectare":
+            return (area * 0.404686).toFixed(2) + " Hectare";
+
+        case "Bigha":
+            return (area * 2).toFixed(2) + " Bigha";
+
+        default:
+            return area.toFixed(2) + " Acre";
+
+    }
+
+}
+
+function applyTheme() {
+
+    const settings = getSettings();
+
+    document.body.classList.remove(
+
+        "theme-green",
+
+        "theme-blue",
+
+        "theme-orange"
+
+    );
+
+    document.body.classList.add(
+
+        "theme-" + settings.theme
+
+    );
+
+}
+
+document.getElementById("themeColor").onchange = function () {
+
+    const settings = getSettings();
+
+    settings.theme = this.value;
+
+    saveSettings(settings);
+
+    applyTheme();
+
+};
+
+function updateNotificationStatus() {
+
+    const settings = getSettings();
+
+    const box =
+        document.getElementById("notificationStatus");
+
+    if (!box) return;
+
+    if (settings.notification) {
+
+        box.innerHTML = `
+
+        <div class="task-card">
+
+            🔔 Notifications Enabled
+
+        </div>
+
+        `;
+
+    } else {
+
+        box.innerHTML = `
+
+        <div class="task-card">
+
+            🔕 Notifications Disabled
+
+        </div>
+
+        `;
+
+    }
+
+}

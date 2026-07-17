@@ -206,7 +206,7 @@ function generatePlan() {
 
             <h3>📊 Farm Planning</h3>
 
-            <p>📏 <b>Area:</b> ${acre.toFixed(2)} Acre</p>
+            <p><b>📏 Area:</b> ${formatArea(acre)}</p>
 
             <p>🌱 <b>Seed:</b> ${seed.toFixed(2)} KG</p>
 
@@ -1121,7 +1121,7 @@ async function downloadCropPDF() {
 
                     <td><b>Area</b></td>
 
-                    <td>${currentPlan.area.toFixed(2)} Acre</td>
+                    <td>${formatArea(currentPlan.area)}</td>
 
                 </tr>
 

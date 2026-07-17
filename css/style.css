@@ -1546,6 +1546,8 @@ display:flex;
 
 justify-content:space-between;
 
+cursor: pointer;
+
 align-items:center;
 
 padding:18px;
@@ -1596,6 +1598,212 @@ border-radius:8px;
 
 .settings-item input[type=checkbox]{
 
-transform:scale(1.4);
+transform:scale(.8);
+
+}
+
+body.dark-mode{
+
+    background:#121212;
+
+    color:#ffffff;
+
+}
+
+body.dark-mode .card{
+
+    background:#1e1e1e;
+
+    color:#ffffff;
+
+}
+
+body.dark-mode .input{
+
+    background:#2b2b2b;
+
+    color:#ffffff;
+
+    border-color:#444;
+
+}
+
+body.dark-mode .btn{
+
+    background:#2e7d32;
+
+}
+
+body.dark-mode .tool-card{
+
+    background:#1e1e1e;
+
+    color:#fff;
+
+}
+
+body.dark-mode .settings-item{
+
+    background:#1e1e1e;
+
+    color:#fff;
+
+}
+
+body.dark-mode .dash-box{
+
+    background:#1e1e1e;
+
+    color:#fff;
+
+}
+
+.switch{
+
+    position:relative;
+
+    display:inline-block;
+
+    width:52px;
+
+    height:28px;
+
+}
+
+.switch input{
+
+    opacity:0;
+
+    width:0;
+
+    height:0;
+
+}
+
+.slider{
+
+    position:absolute;
+
+    cursor:pointer;
+
+    top:0;
+
+    left:0;
+
+    right:0;
+
+    bottom:0;
+
+    background:#ccc;
+
+    transition:.3s;
+
+    border-radius:30px;
+
+}
+
+.slider:before{
+
+    position:absolute;
+
+    content:"";
+
+    width:22px;
+
+    height:22px;
+
+    left:3px;
+
+    bottom:3px;
+
+    background:white;
+
+    transition:.3s;
+
+    border-radius:50%;
+
+}
+
+input:checked + .slider{
+
+    background:#2e7d32;
+
+}
+
+input:checked + .slider:before{
+
+    transform:translateX(24px);
+
+}
+
+:root{
+
+--primary:#2e7d32;
+
+}
+
+body.theme-green{
+
+--primary:#2e7d32;
+
+}
+
+body.theme-blue{
+
+--primary:#1565c0;
+
+}
+
+body.theme-orange{
+
+--primary:#ef6c00;
+
+}
+
+.btn{
+
+background:var(--primary);
+
+}
+
+.page-header{
+
+color:var(--primary);
+
+}
+
+.dash-box h3{
+
+color:var(--primary);
+
+}
+
+.settings-title{
+
+color:var(--primary);
+
+}
+
+.notification-on{
+
+background:#e8f5e9;
+
+color:#2e7d32;
+
+padding:12px;
+
+border-radius:12px;
+
+}
+
+.notification-off{
+
+background:#ffebee;
+
+color:#d32f2f;
+
+padding:12px;
+
+border-radius:12px;
 
 }

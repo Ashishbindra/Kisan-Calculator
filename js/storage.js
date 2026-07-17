@@ -186,12 +186,12 @@ const SETTINGS_KEY = "kisan_settings";
 function getSettings() {
 
     return JSON.parse(
-
         localStorage.getItem(SETTINGS_KEY)
-
     ) || {
 
         dark: false,
+
+        theme: "green",
 
         unit: "Acre",
 
@@ -205,15 +205,14 @@ function getSettings() {
 
 }
 
-function saveSettings(data) {
+function saveSettings(settings) {
 
     localStorage.setItem(
 
         SETTINGS_KEY,
 
-        JSON.stringify(data)
+        JSON.stringify(settings)
 
     );
 
 }
-

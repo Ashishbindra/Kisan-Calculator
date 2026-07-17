@@ -93,7 +93,7 @@ function deleteFarm(id) {
 
 const CURRENT_FARM_KEY = "current_farm";
 
-function setCurrentFarm(farm){
+function setCurrentFarm(farm) {
 
     localStorage.setItem(
         CURRENT_FARM_KEY,
@@ -102,7 +102,7 @@ function setCurrentFarm(farm){
 
 }
 
-function getCurrentFarm(){
+function getCurrentFarm() {
 
     return JSON.parse(
         localStorage.getItem(CURRENT_FARM_KEY)
@@ -164,7 +164,7 @@ function importData(data) {
 
 const FARMER_KEY = "kisan_farmer_profile";
 
-function saveFarmerProfile(profile){
+function saveFarmerProfile(profile) {
 
     localStorage.setItem(
         FARMER_KEY,
@@ -173,11 +173,47 @@ function saveFarmerProfile(profile){
 
 }
 
-function getFarmerProfile(){
+function getFarmerProfile() {
 
     return JSON.parse(
         localStorage.getItem(FARMER_KEY)
     ) || {};
+
+}
+
+const SETTINGS_KEY = "kisan_settings";
+
+function getSettings() {
+
+    return JSON.parse(
+
+        localStorage.getItem(SETTINGS_KEY)
+
+    ) || {
+
+        dark: false,
+
+        unit: "Acre",
+
+        currency: "₹ INR",
+
+        pdf: "High",
+
+        notification: true
+
+    };
+
+}
+
+function saveSettings(data) {
+
+    localStorage.setItem(
+
+        SETTINGS_KEY,
+
+        JSON.stringify(data)
+
+    );
 
 }
 

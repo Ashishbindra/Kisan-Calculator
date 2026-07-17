@@ -587,15 +587,15 @@ if (advisorCard) {
 
 }
 
-function loadTodayTasks(){
+function loadTodayTasks() {
 
-    const container=document.getElementById("todayTasks");
+    const container = document.getElementById("todayTasks");
 
-    const plans=getPlans();
+    const plans = getPlans();
 
-    if(plans.length===0){
+    if (plans.length === 0) {
 
-        container.innerHTML=`
+        container.innerHTML = `
 
             <div class="empty-task">
 
@@ -609,11 +609,11 @@ function loadTodayTasks(){
 
     }
 
-    let html="";
+    let html = "";
 
-    plans.slice(0,3).forEach(plan=>{
+    plans.slice(0, 3).forEach(plan => {
 
-        html+=`
+        html += `
 
         <div class="task-card">
 
@@ -645,7 +645,7 @@ function loadTodayTasks(){
 
     });
 
-    container.innerHTML=html;
+    container.innerHTML = html;
 
 }
 
@@ -656,3 +656,44 @@ document.querySelector(".open-profile").onclick = () => {
     loadFarmerProfile();
 
 };
+
+function loadSettings() {
+
+    const s = getSettings();
+
+    document.getElementById("darkMode").checked = s.dark;
+
+    document.getElementById("defaultUnit").value = s.unit;
+
+    document.getElementById("currency").value = s.currency;
+
+    document.getElementById("pdfQuality").value = s.pdf;
+
+    document.getElementById("notification").checked = s.notification;
+
+}
+
+function updateSettings() {
+
+    saveSettings({
+
+        dark: document.getElementById("darkMode").checked,
+
+        unit: document.getElementById("defaultUnit").value,
+
+        currency: document.getElementById("currency").value,
+
+        pdf: document.getElementById("pdfQuality").value,
+
+        notification: document.getElementById("notification").checked
+
+    });
+
+}
+
+document.querySelectorAll("#settingsPage input,#settingsPage select")
+    .forEach(el => {
+
+        el.onchange = updateSettings;
+
+    });

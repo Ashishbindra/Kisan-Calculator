@@ -1525,3 +1525,77 @@ button{
     box-shadow:0 10px 25px rgba(0,0,0,.12);
 
 }
+
+.settings-list{
+
+margin-top:20px;
+
+background:#fff;
+
+border-radius:18px;
+
+overflow:hidden;
+
+box-shadow:0 3px 10px rgba(0,0,0,.08);
+
+}
+
+.settings-item{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:18px;
+
+border-bottom:1px solid #eee;
+
+}
+
+.settings-item:last-child{
+
+border-bottom:none;
+
+}
+
+.settings-item h3{
+
+margin:0;
+
+font-size:17px;
+
+}
+
+.settings-item p{
+
+margin:5px 0 0;
+
+color:#777;
+
+font-size:13px;
+
+}
+
+.settings-item span{
+
+font-size:24px;
+
+color:#999;
+
+}
+
+.settings-item select{
+
+padding:8px;
+
+border-radius:8px;
+
+}
+
+.settings-item input[type=checkbox]{
+
+transform:scale(1.4);
+
+}

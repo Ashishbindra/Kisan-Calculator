@@ -209,6 +209,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
         });
 
+    const weatherCard = document.querySelector(".open-weather");
+
+    if (weatherCard) {
+
+        weatherCard.onclick = () => {
+
+            showPage("weatherPage");
+
+            loadWeather();
+
+        };
+
+    }
 
     const shareApp = document.getElementById("shareApp");
 

@@ -1807,3 +1807,23 @@ padding:12px;
 border-radius:12px;
 
 }
+
+.back-btn{
+
+    width:40px;
+
+    height:40px;
+
+    border:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    background:#2e7d32;
+
+    color:#fff;
+
+    margin-right:10px;
+
+}

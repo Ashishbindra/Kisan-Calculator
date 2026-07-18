@@ -4,7 +4,7 @@ Kisan Calculator V2
 App Navigation
 =========================================
 */
-
+let pageHistory = [];
 document.addEventListener("DOMContentLoaded", () => {
 
     // ==========================
@@ -18,20 +18,24 @@ document.addEventListener("DOMContentLoaded", () => {
     // Show Page
     // ==========================
 
-    window.showPage = function (pageId) {
+    window.showPage = function (pageId, saveHistory = true) {
+
+        const currentPage = document.querySelector(".page.active-page");
+
+        if (currentPage && currentPage.id !== pageId && saveHistory) {
+
+            pageHistory.push(currentPage.id);
+
+        }
 
         pages.forEach(page => {
-
             page.classList.remove("active-page");
-
         });
 
-        const currentPage = document.getElementById(pageId);
+        const nextPage = document.getElementById(pageId);
 
-        if (currentPage) {
-
-            currentPage.classList.add("active-page");
-
+        if (nextPage) {
+            nextPage.classList.add("active-page");
         }
 
         navButtons.forEach(btn => {
@@ -39,23 +43,41 @@ document.addEventListener("DOMContentLoaded", () => {
             btn.classList.remove("active");
 
             if (btn.dataset.page === pageId) {
-
                 btn.classList.add("active");
-
             }
 
         });
 
+        const backBtn = document.getElementById("backBtn");
+
+        if (backBtn) {
+
+            backBtn.style.display =
+                pageId === "homePage" ? "none" : "block";
+
+        }
+
         window.scrollTo({
-
             top: 0,
-
             behavior: "smooth"
-
         });
 
-    }
+    };
+    window.goBack = function () {
 
+        if (pageHistory.length === 0) {
+
+            showPage("homePage", false);
+
+            return;
+
+        }
+
+        const previousPage = pageHistory.pop();
+
+        showPage(previousPage, false);
+
+    };
 
     // ==========================
     // Bottom Navigation

@@ -165,17 +165,13 @@ function removeFarm(id) {
 
 function openFarm(id) {
 
-    const farms = getFarms();
+    const farm = getFarms().find(f => f.id === id);
 
-    const farm = farms.find(f => f.id === id);
-
-    if (!farm) {
-
-        return;
-
-    }
+    if (!farm) return;
 
     setCurrentFarm(farm);
+
+    loadPlannerFarm();
 
     showPage("plannerPage");
 

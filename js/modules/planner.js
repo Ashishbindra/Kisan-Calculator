@@ -15,11 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function initializePlanner() {
 
-    currentPlannerFarm = getCurrentFarm();
-
-    currentPlannerArea = getLastArea();
-
-    showPlannerInfo();
+    loadPlannerFarm();
 
     const btn = document.getElementById("generatePlan");
 
@@ -1410,3 +1406,25 @@ document.getElementById("saveFarmerProfile").onclick = () => {
     alert("✅ Farmer Profile Saved");
 
 };
+
+function loadPlannerFarm() {
+
+    currentPlannerFarm = getCurrentFarm();
+
+    if (!currentPlannerFarm) {
+
+        currentPlannerArea = null;
+
+    } else {
+
+        currentPlannerArea = {
+
+            acre: Number(currentPlannerFarm.area)
+
+        };
+
+    }
+
+    showPlannerInfo();
+
+}

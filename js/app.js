@@ -862,17 +862,6 @@ function applyTheme() {
 
 }
 
-document.getElementById("themeColor").onchange = function () {
-
-    const settings = getSettings();
-
-    settings.theme = this.value;
-
-    saveSettings(settings);
-
-    applyTheme();
-
-};
 
 function updateNotificationStatus() {
 

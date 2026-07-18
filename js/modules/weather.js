@@ -39,20 +39,26 @@ async function loadWeather() {
 
     try {
 
-        const location =
-            await getCurrentLocation();
+        let latitude, longitude;
 
-        const city =
-            await getCityName(
-                location.latitude,
-                location.longitude
-            );
+        try {
 
-        const weather =
-            await getWeather(
-                location.latitude,
-                location.longitude
-            );
+            const location = await getCurrentLocation();
+            latitude = location.latitude;
+            longitude = location.longitude;
+
+        } catch (e) {
+
+            // GPS नहीं मिला तो IP से लो
+            const ip = await fetch("https://ipapi.co/json/");
+            const data = await ip.json();
+
+            latitude = data.latitude;
+            longitude = data.longitude;
+
+        }
+        const city = await getCityName(latitude, longitude);
+        const weather = await getWeather(latitude, longitude);
 
         renderWeather(
             city,
@@ -122,53 +128,55 @@ function getCurrentLocation() {
 
 }
 
-// ======================================================
-// Get City Name
-// ======================================================
+// ======================================
+// Reverse Geocoding (No API Key)
+// ======================================
 
 async function getCityName(lat, lon) {
 
-    const response = await fetch(
+    try {
 
-        `${GEOCODE_API}?format=jsonv2&lat=${lat}&lon=${lon}`,
+        const response = await fetch(
 
-        {
+            `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`
 
-            headers: {
+        );
 
-                Accept:
-                    "application/json"
+        if (!response.ok) {
 
-            }
+            return "Current Location";
 
         }
 
-    );
+        const data = await response.json();
 
-    if (!response.ok) {
+        console.log("Address:", data);
+
+        return (
+
+            data.locality ||
+
+            data.city ||
+
+            data.principalSubdivision ||
+
+            data.localityInfo?.administrative?.[2]?.name ||
+
+            data.countryName ||
+
+            "Current Location"
+
+        );
+
+    }
+
+    catch (e) {
+
+        console.error(e);
 
         return "Current Location";
 
     }
-
-    const data =
-        await response.json();
-
-    return (
-
-        data.address.city ||
-
-        data.address.town ||
-
-        data.address.village ||
-
-        data.address.county ||
-
-        data.address.state ||
-
-        "Current Location"
-
-    );
 
 }
 
@@ -326,310 +334,6 @@ function formatTime(dateString) {
         }
 
     );
-
-}
-
-// ======================================================
-// Render Weather
-// ======================================================
-
-function renderWeather(city, data) {
-
-    const current = data.current;
-
-    const daily = data.daily;
-
-    const icon = getWeatherIcon(
-        current.weather_code,
-        current.is_day
-    );
-    const alerts =
-        getWeatherAlert(current, daily);
-    const advice =
-        getFarmingAdvice(current, daily);
-
-    let forecastHTML = "";
-
-    for (let i = 0; i < daily.time.length; i++) {
-
-        const day = new Date(
-            daily.time[i]
-        ).toLocaleDateString(
-            "en-US",
-            {
-                weekday: "short"
-            }
-        );
-
-        forecastHTML += `
-
-        <div class="forecast-item">
-
-            <div class="forecast-day">
-
-                ${day}
-
-            </div>
-
-            <div class="forecast-icon">
-
-                ${getWeatherIcon(
-            daily.weather_code[i],
-            1
-        )}
-
-            </div>
-
-            <div class="forecast-temp">
-
-                ${daily.temperature_2m_max[i]}°
-                /
-                ${daily.temperature_2m_min[i]}°
-
-            </div>
-
-            <div class="forecast-rain">
-
-                🌧 ${daily.precipitation_probability_max[i]}%
-
-            </div>
-
-        </div>
-
-        `;
-
-    }
-
-    weatherContainer.innerHTML = `
-
-<div class="weather-card">
-
-    <div class="weather-header">
-
-        <div class="weather-main-icon">
-
-            ${icon}
-
-        </div>
-
-        <div>
-
-            <h2>
-
-                ${current.temperature_2m}°C
-
-            </h2>
-
-            <h4>
-
-                📍 ${city}
-
-            </h4>
-
-        </div>
-
-    </div>
-
-    <div class="weather-grid">
-
-        <div class="weather-box">
-
-            <span>💧 Humidity</span>
-
-            <strong>
-
-                ${current.relative_humidity_2m}%
-
-            </strong>
-
-        </div>
-
-        <div class="weather-box">
-
-            <span>🌡 Feels Like</span>
-
-            <strong>
-
-                ${current.apparent_temperature}°C
-
-            </strong>
-
-        </div>
-
-        <div class="weather-box">
-
-            <span>💨 Wind</span>
-
-            <strong>
-
-                ${current.wind_speed_10m} km/h
-
-            </strong>
-
-        </div>
-
-        <div class="weather-box">
-
-            <span>🌡 Pressure</span>
-
-            <strong>
-
-                ${current.pressure_msl} hPa
-
-            </strong>
-
-        </div>
-
-        <div class="weather-box">
-
-            <span>🌅 Sunrise</span>
-
-            <strong>
-
-                ${formatTime(
-        daily.sunrise[0]
-    )}
-
-            </strong>
-
-        </div>
-
-        <div class="weather-box">
-
-            <span>🌇 Sunset</span>
-
-            <strong>
-
-                ${formatTime(
-        daily.sunset[0]
-    )}
-
-            </strong>
-
-        </div>
-
-    </div>
-    ${alerts.length ? `
-
-    <div class="weather-alert">
-
-    <h3>
-
-    ⚠ Weather Alerts
-
-    </h3>
-
-    <ul>
-
-    ${alerts.map(a => `<li>${a}</li>`).join("")}
-
-    </ul>
-
-    </div>
-
-    ` : ""}
-    <div class="weather-advice">
-
-        <h3>
-
-            🌾 Smart Farming Advice
-
-        </h3>
-
-        <ul>
-
-            ${advice
-            .map(
-                item =>
-                    `<li>${item}</li>`
-            )
-            .join("")}
-
-        </ul>
-
-    </div>
-
-</div>
-
-<div class="forecast-card">
-
-    <h3>
-
-        📅 7 Day Forecast
-
-    </h3>
-
-    <div class="forecast-list">
-
-        ${forecastHTML}
-
-    </div>
-
-</div>
-
-`;
-
-}
-
-// ======================================================
-// Show Error
-// ======================================================
-
-function showError(message = "") {
-
-    weatherContainer.innerHTML = `
-
-    <div class="weather-error">
-
-        <div style="font-size:70px">🌩️</div>
-
-        <h2>
-
-            Weather Unavailable
-
-        </h2>
-
-        <p>
-
-            ${message || "Location Permission या Internet उपलब्ध नहीं है।"}
-
-        </p>
-
-        <button
-            class="btn"
-            onclick="loadWeather()">
-
-            🔄 Retry
-
-        </button>
-
-    </div>
-
-    `;
-
-}
-
-// ======================================================
-// Loading
-// ======================================================
-
-function showLoading() {
-
-    weatherContainer.innerHTML = `
-
-    <div class="weather-loading">
-
-        <div class="loader"></div>
-
-        <h3>
-
-            Fetching Live Weather...
-
-        </h3>
-
-    </div>
-
-    `;
 
 }
 

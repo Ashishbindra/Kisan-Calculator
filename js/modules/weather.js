@@ -134,49 +134,29 @@ function getCurrentLocation() {
 
 async function getCityName(lat, lon) {
 
-    try {
+    const response = await fetch(
+        `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`
+    );
 
-        const response = await fetch(
+    const data = await response.json();
 
-            `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`
+    console.log(data);
 
-        );
+    if (data.localityInfo?.administrative) {
 
-        if (!response.ok) {
+        const admin = data.localityInfo.administrative;
 
-            return "Current Location";
-
-        }
-
-        const data = await response.json();
-
-        console.log("Address:", data);
-
-        return (
-
-            data.locality ||
-
-            data.city ||
-
-            data.principalSubdivision ||
-
-            data.localityInfo?.administrative?.[2]?.name ||
-
-            data.countryName ||
-
-            "Current Location"
-
-        );
+        // सबसे छोटे स्तर का नाम
+        return admin[admin.length - 1].name;
 
     }
 
-    catch (e) {
-
-        console.error(e);
-
-        return "Current Location";
-
-    }
+    return (
+        data.locality ||
+        data.city ||
+        data.principalSubdivision ||
+        "Current Location"
+    );
 
 }
 
